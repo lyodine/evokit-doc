@@ -49,7 +49,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -122,7 +122,7 @@ in which that value is collected.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="evokit.core.accountant.AccountantRecord.value">
 <span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#evokit.core.accountant.AccountantRecord.value" title="Link to this definition"></a></dt>
-<dd><p>Data collected in generation <a class="reference internal" href="#evokit.core.accountant.AccountantRecord.generation" title="evokit.core.accountant.AccountantRecord.generation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">generation</span></code></a> after event <a class="reference internal" href="#evokit.core.accountant.AccountantRecord.event" title="evokit.core.accountant.AccountantRecord.event"><code class="xref py py-attr docutils literal notranslate"><span class="pre">event</span></code></a>.</p>
+<dd><p>Data collected in <a class="reference internal" href="#evokit.core.accountant.AccountantRecord.generation" title="evokit.core.accountant.AccountantRecord.generation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">generation</span></code></a> after <a class="reference internal" href="#evokit.core.accountant.AccountantRecord.event" title="evokit.core.accountant.AccountantRecord.event"><code class="xref py py-attr docutils literal notranslate"><span class="pre">event</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -151,24 +151,25 @@ a <code class="xref py py-class docutils literal notranslate"><span class="pre">
 <p>Tutorial: <a class="reference internal" href="guides/examples/accountant.html"><span class="doc">Collect Runtime Statistics with Accountant</span></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.accountant.Accountant.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handlers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">C</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/accountant.html#Accountant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.accountant.Accountant.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handlers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">C</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/accountant.html#Accountant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.accountant.Accountant.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>handlers</strong> – a dictionary of <cite>event : handler</cite> mappings. Each <cite>handler</cite>
-should have the signature <code class="code highlight python docutils literal highlight-python"><span class="n">Algorithm</span> <span class="o">-&gt;</span> <span class="n">Any</span></code>:</p>
+<dd class="field-odd"><p><strong>handlers</strong> – a dictionary of <cite>event : handler</cite> mappings.
+Each <cite>handler</cite> should have the signature
+<code class="code highlight python docutils literal highlight-python"><span class="n">Algorithm</span> <span class="o">-&gt;</span> <span class="n">Any</span></code>:</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="evokit.core.accountant.Accountant.records">
-<span class="sig-name descname"><span class="pre">records</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.AccountantRecord" title="evokit.core.accountant.AccountantRecord"><span class="pre">AccountantRecord</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.accountant.Accountant.records" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">records</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.AccountantRecord" title="evokit.core.accountant.AccountantRecord"><span class="pre">AccountantRecord</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.accountant.Accountant.records" title="Link to this definition"></a></dt>
 <dd><p>Records collected by the <code class="docutils literal notranslate"><span class="pre">Accountant</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="evokit.core.accountant.Accountant.handlers">
-<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">C</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.accountant.Accountant.handlers" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">C</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.accountant.Accountant.handlers" title="Link to this definition"></a></dt>
 <dd><p><cite>Event - handler</cite> pairs of the <code class="docutils literal notranslate"><span class="pre">Accountant</span></code></p>
 </dd></dl>
 
@@ -180,7 +181,7 @@ should have the signature <code class="code highlight python docutils literal hi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.accountant.Accountant.publish">
-<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.AccountantRecord" title="evokit.core.accountant.AccountantRecord"><span class="pre">AccountantRecord</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/accountant.html#Accountant.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.accountant.Accountant.publish" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.AccountantRecord" title="evokit.core.accountant.AccountantRecord"><span class="pre">AccountantRecord</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/accountant.html#Accountant.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.accountant.Accountant.publish" title="Link to this definition"></a></dt>
 <dd><p>Report collected data.</p>
 <p>Each time an event fires in the attached :class`.Algorithm`,
 if that event is registered in <a class="reference internal" href="#evokit.core.accountant.Accountant.handlers" title="evokit.core.accountant.Accountant.handlers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">handlers</span></code></a>, supply the
@@ -203,10 +204,10 @@ returns a list of all collected records.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="evokit.core.algorithm.Algorithm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.algorithm.</span></span><span class="sig-name descname"><span class="pre">Algorithm</span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#Algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.Algorithm" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Base class for all evolutionary algorithms.</p>
 <p>Derive this class to create custom algorithms.</p>
-<p>Tutorial: <a class="reference internal" href="guides/examples/algorithm.html"><span class="doc">Creating a Custom Controller</span></a>.</p>
+<p>Tutorial: <a class="reference internal" href="guides/examples/algorithm.html"><span class="doc">Making a Custom Algorithm</span></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.algorithm.Algorithm.__new__">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#Algorithm.__new__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.Algorithm.__new__" title="Link to this definition"></a></dt>
@@ -230,13 +231,13 @@ in the algorithm.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="evokit.core.algorithm.Algorithm.accountants">
-<span class="sig-name descname"><span class="pre">accountants</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.Accountant" title="evokit.core.accountant.Accountant"><span class="pre">Accountant</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.algorithm.Algorithm.accountants" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">accountants</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#evokit.core.accountant.Accountant" title="evokit.core.accountant.Accountant"><span class="pre">Accountant</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.algorithm.Algorithm.accountants" title="Link to this definition"></a></dt>
 <dd><p>Registered <code class="xref py py-class docutils literal notranslate"><span class="pre">Accountant</span></code> objects.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="evokit.core.algorithm.Algorithm.events">
-<span class="sig-name descname"><span class="pre">events</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.algorithm.Algorithm.events" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">events</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evokit.core.algorithm.Algorithm.events" title="Link to this definition"></a></dt>
 <dd><p>Events that can be reported by this algorithm.</p>
 </dd></dl>
 
@@ -293,76 +294,6 @@ collects data from this Algorithm.</p>
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.algorithm.SimpleLinearAlgorithm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.algorithm.</span></span><span class="sig-name descname"><span class="pre">SimpleLinearAlgorithm</span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#SimpleLinearAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.SimpleLinearAlgorithm" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.algorithm.Algorithm" title="evokit.core.algorithm.Algorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Algorithm</span></code></a></p>
-<p>A very simple evolutionary algorithm.</p>
-<p>An evolutionary algorithm that maintains one population and does not
-take advantage of parallelism. The algorithm applies its operators
-in the following order:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">GENERATION_BEGIN</span></code></p></li>
-<li><p><strong>evaluate</strong> for selection</p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_VARIATION</span></code></p></li>
-<li><p>select for <strong>survivors</strong></p></li>
-<li><p>update <code class="xref py py-attr docutils literal notranslate"><span class="pre">population</span></code></p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_EVALUATION</span></code></p></li>
-<li><p><strong>vary</strong> parents</p></li>
-<li><p>update <code class="xref py py-attr docutils literal notranslate"><span class="pre">population</span></code></p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_SELECTION</span></code></p></li>
-</ol>
-</div></blockquote>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.algorithm.SimpleLinearAlgorithm.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.evaluator.Evaluator" title="evokit.core.evaluator.Evaluator"><span class="pre">Evaluator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><span class="pre">Selector</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.variator.Variator" title="evokit.core.variator.Variator"><span class="pre">Variator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#SimpleLinearAlgorithm.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.SimpleLinearAlgorithm.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.algorithm.SimpleLinearAlgorithm.step">
-<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#SimpleLinearAlgorithm.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.SimpleLinearAlgorithm.step" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.algorithm.LinearAlgorithm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.algorithm.</span></span><span class="sig-name descname"><span class="pre">LinearAlgorithm</span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#LinearAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.LinearAlgorithm" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.algorithm.Algorithm" title="evokit.core.algorithm.Algorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Algorithm</span></code></a></p>
-<p>A simple evolutionary algorithm.</p>
-<p>An evolutionary algorithm that maintains one population and does not
-take advantage of parallelism. The algorithm applies its operators
-in the following order:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">&quot;GENERATION_BEGIN&quot;</span></code></p></li>
-<li><p><strong>evaluate</strong> for parent selection</p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_PARENT_EVALUATION</span></code></p></li>
-<li><p>select for <strong>parents</strong></p></li>
-<li><p>update <code class="xref py py-attr docutils literal notranslate"><span class="pre">population</span></code></p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_PARENT_SELECTION</span></code></p></li>
-<li><p><strong>vary</strong> parents</p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_VARIATION</span></code></p></li>
-<li><p><strong>evaluate</strong> for survivor selection</p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_SURVIVOR_EVALUATION</span></code></p></li>
-<li><p>select for <strong>survivors</strong></p></li>
-<li><p>update <code class="xref py py-attr docutils literal notranslate"><span class="pre">population</span></code></p></li>
-<li><p>fire event <code class="docutils literal notranslate"><span class="pre">POST_SURVIVOR_SELECTION</span></code></p></li>
-</ol>
-</div></blockquote>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.algorithm.LinearAlgorithm.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.evaluator.Evaluator" title="evokit.core.evaluator.Evaluator"><span class="pre">Evaluator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><span class="pre">Selector</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.variator.Variator" title="evokit.core.variator.Variator"><span class="pre">Variator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survivor_evaluator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.evaluator.Evaluator" title="evokit.core.evaluator.Evaluator"><span class="pre">Evaluator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">survivor_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><span class="pre">Selector</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#LinearAlgorithm.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.LinearAlgorithm.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.algorithm.LinearAlgorithm.step">
-<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#LinearAlgorithm.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.LinearAlgorithm.step" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="module-evokit.core.evaluator">
 <span id="evokit-core-evaluator-module"></span><h2>evokit.core.evaluator module<a class="headerlink" href="#module-evokit.core.evaluator" title="Link to this heading"></a></h2>
@@ -400,7 +331,8 @@ in the following order:</p>
 <p>Subclasses should override this method.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The implementation should assign higher fitness to better individuals.</p>
+<p>“Better” individuals should have higher fitness.</p>
+<p><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a> should prefer individuals with higher fitness.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -413,33 +345,22 @@ in the following order:</p>
 <dt class="sig sig-object py" id="evokit.core.evaluator.Evaluator.evaluate_population">
 <span class="sig-name descname"><span class="pre">evaluate_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/evaluator.html#Evaluator.evaluate_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.evaluator.Evaluator.evaluate_population" title="Link to this definition"></a></dt>
 <dd><p>Context of <a class="reference internal" href="#evokit.core.evaluator.Evaluator.evaluate" title="evokit.core.evaluator.Evaluator.evaluate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">evaluate()</span></code></a>.</p>
-<p>Iterate individuals in a population. For each individual, compute a
-fitness with <a class="reference internal" href="#evokit.core.evaluator.Evaluator.evaluate" title="evokit.core.evaluator.Evaluator.evaluate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">evaluate()</span></code></a>, then assign that value to the individual.</p>
+<p>Iterate individuals in a population. For each individual, compute its
+fitness with <a class="reference internal" href="#evokit.core.evaluator.Evaluator.evaluate" title="evokit.core.evaluator.Evaluator.evaluate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">evaluate()</span></code></a>, then assign that value to
+its <a class="reference internal" href="#evokit.core.population.Individual.fitness" title="evokit.core.population.Individual.fitness"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Individual.fitness</span></code></a>.</p>
 <p>A subclass may override this method to implement behaviours that
 require access to the entire population.</p>
 <dl class="simple">
-<dt>Effect:</dt><dd><p>For each item in <code class="code highlight docutils literal notranslate"><span class="pre">pop</span></code>, set its <code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span> <span class="pre">.Individual.fitness</span></code>.</p>
+<dt>Effect:</dt><dd><p>For each item in <code class="code highlight docutils literal notranslate"><span class="pre">pop</span></code>, set its <code class="xref py py-attr docutils literal notranslate"><span class="pre">Individual.fitness</span></code>.</p>
 </dd>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method must <strong>never</strong> return a value. It must assign to
 <a class="reference internal" href="#evokit.core.population.Individual.fitness" title="evokit.core.population.Individual.fitness"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code></a> for each <a class="reference internal" href="#evokit.core.population.Individual" title="evokit.core.population.Individual"><code class="xref py py-class docutils literal notranslate"><span class="pre">Individual</span></code></a> in the
-<a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>. The result must be sorted, so that the earliest
-item has the highest fitness.</p>
+<a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.</p>
 </div>
 </dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.evaluator.NullEvaluator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.evaluator.</span></span><span class="sig-name descname"><span class="pre">NullEvaluator</span></span><a class="reference internal" href="_modules/evokit/core/evaluator.html#NullEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.evaluator.NullEvaluator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.evaluator.Evaluator" title="evokit.core.evaluator.Evaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.evaluator.NullEvaluator.evaluate">
-<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/evaluator.html#NullEvaluator.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.evaluator.NullEvaluator.evaluate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -501,9 +422,8 @@ from this property raises an exception.</p>
 <dt class="sig sig-object py" id="evokit.core.population.Individual.reset_fitness">
 <span class="sig-name descname"><span class="pre">reset_fitness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#Individual.reset_fitness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.Individual.reset_fitness" title="Link to this definition"></a></dt>
 <dd><p>Reset the fitness of the individual.</p>
-<p>Set the <a class="reference internal" href="#evokit.core.population.Individual.fitness" title="evokit.core.population.Individual.fitness"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code></a> of the individual to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <dl class="simple">
-<dt>Effect:</dt><dd><p>The <cite>.fitness</cite> of this individual becomes <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dt>Effect:</dt><dd><p>The <a class="reference internal" href="#evokit.core.population.Individual.fitness" title="evokit.core.population.Individual.fitness"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code></a> of this individual becomes <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -511,7 +431,8 @@ from this property raises an exception.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.population.Individual.has_fitness">
 <span class="sig-name descname"><span class="pre">has_fitness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#Individual.has_fitness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.Individual.has_fitness" title="Link to this definition"></a></dt>
-<dd><p>Return if the individual has a fitness value.</p>
+<dd><p>Return <cite>True</cite> if <a class="reference internal" href="#evokit.core.population.Individual.fitness" title="evokit.core.population.Individual.fitness"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span></code></a> is not None.
+Otherwise, return <cite>False</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -553,9 +474,10 @@ the original value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.population.AbstractCollection.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">R</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#AbstractCollection.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.AbstractCollection.extend" title="Link to this definition"></a></dt>
-<dd><p>Append all items from another collection to this collection</p>
+<dt class="sig sig-object py" id="evokit.core.population.AbstractCollection.join">
+<span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">R</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#AbstractCollection.join"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.AbstractCollection.join" title="Link to this definition"></a></dt>
+<dd><p>Produce a new collection with items from <code class="code highlight docutils literal notranslate"><span class="pre">self</span></code> and
+<code class="code highlight docutils literal notranslate"><span class="pre">values</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>values</strong> – Collection whose values are appended to this collection.</p>
@@ -584,7 +506,8 @@ population.</p>
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">R</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">R</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#AbstractCollection.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.AbstractCollection.draw" title="Link to this definition"></a></dt>
 <dd><p>Remove an item from the population.</p>
 <p>Identify an item either by value (in <code class="code highlight docutils literal notranslate"><span class="pre">key</span></code>) or by position
-(in <code class="code highlight docutils literal notranslate"><span class="pre">pos</span></code>). Remove that item from the collection, then return that item.</p>
+(in <code class="code highlight docutils literal notranslate"><span class="pre">pos</span></code>). Remove that item from the collection,
+then return that item.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The <a class="reference internal" href="#evokit.core.population.Individual" title="evokit.core.population.Individual"><code class="xref py py-class docutils literal notranslate"><span class="pre">Individual</span></code></a> that is removed from the population</p>
@@ -617,8 +540,8 @@ population.</p>
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#Population.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.Population.copy" title="Link to this definition"></a></dt>
 <dd><p>Return an independent population.</p>
 <p>Changes made to items in the new population should not affect
-items in this population. This behaviour depends on correct implementation
-of <a class="reference internal" href="#evokit.core.population.Individual.copy" title="evokit.core.population.Individual.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.copy()</span></code></a> in each item.</p>
+items in this population. This behaviour depends on correct
+implementation of <a class="reference internal" href="#evokit.core.population.Individual.copy" title="evokit.core.population.Individual.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.copy()</span></code></a> in each item.</p>
 <p>Call <a class="reference internal" href="#evokit.core.population.Individual.copy" title="evokit.core.population.Individual.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.copy()</span></code></a> for each <a class="reference internal" href="#evokit.core.population.Individual" title="evokit.core.population.Individual"><code class="xref py py-class docutils literal notranslate"><span class="pre">Individual</span></code></a> in this
 population. Collect the results, then create a new population with
 these values.</p>
@@ -668,184 +591,75 @@ its <code class="xref py py-attr docutils literal notranslate"><span class="pre"
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
 <p>Base class for all selectors.</p>
 <p>Derive this class to create custom selectors.</p>
-<p>Tutorial: <a class="reference internal" href="guides/examples/selector.html"><span class="doc">Creating a Custom Selector</span></a>.</p>
+<p>Tutorial: <a class="reference internal" href="guides/examples/selector.html"><span class="doc">Making a Custom Selector</span></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.selector.Selector.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">budget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>budget</strong> – Number of individuals in the output.</p>
+<dd class="field-odd"><p><strong>budget</strong> – Number of individuals to select.</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Implementations that select a variable number of
+individuals may ignore <code class="xref py py-attr docutils literal notranslate"><span class="pre">budget</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.Selector.select_to_population">
-<span class="sig-name descname"><span class="pre">select_to_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.select_to_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.select_to_population" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="evokit.core.selector.Selector.select_population">
+<span class="sig-name descname"><span class="pre">select_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.select_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.select_population" title="Link to this definition"></a></dt>
 <dd><p>Select from a population to a population.</p>
-<p>Invoke <a class="reference internal" href="#evokit.core.selector.Selector.select_to_many" title="evokit.core.selector.Selector.select_to_many"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_to_many()</span></code></a>, then shape the result into a
-<a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a>.</p>
+<p>The default implementation calls <a class="reference internal" href="#evokit.core.selector.Selector.select" title="evokit.core.selector.Selector.select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code></a> on
+<code class="code highlight docutils literal notranslate"><span class="pre">from_population</span></code> and collects the results.</p>
+<p>All subclasses should override either this method or <a class="reference internal" href="#evokit.core.selector.Selector.select" title="evokit.core.selector.Selector.select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code></a>.
+Consider overriding this method if selection requires information
+about the whole population. Example: fitness proportionate selection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>population</strong> – population to select from.</p>
+<dd class="field-odd"><p><strong>from_population</strong> – population to select from.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A new population with selected individuals.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Effect:</dt><dd><p>Remove all items from the original <code class="docutils literal notranslate"><span class="pre">population</span></code> (from
-<a class="reference internal" href="#evokit.core.selector.Selector.select_to_many" title="evokit.core.selector.Selector.select_to_many"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_to_many()</span></code></a>).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.Selector.select_to_many">
-<span class="sig-name descname"><span class="pre">select_to_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.select_to_many"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.select_to_many" title="Link to this definition"></a></dt>
-<dd><p>Context of <a class="reference internal" href="#evokit.core.selector.Selector.select" title="evokit.core.selector.Selector.select"><code class="xref py py-attr docutils literal notranslate"><span class="pre">select</span></code></a>.</p>
-<p>Repeatedly apply select() to create a collection of solutions. Each
-application removes an item in the original population.</p>
-<p>A subclass may override this method to implement behaviours that
-require access to the entire selection process.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>population</strong> – population to select from.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple of selected individuals.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Effect:</dt><dd><p>Remove all items from <code class="docutils literal notranslate"><span class="pre">population</span></code>.</p>
+<dt class="field-even">Warns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>The default implementation calls :meth:`select` as long as</strong></p></li>
+<li><p><strong>the number of selected individuals is less than :attr:`budget`.</strong></p></li>
+<li><p><strong>As such, if :meth:`.select` can return multiple individuals, then</strong></p></li>
+<li><p><strong>the last call may return more individuals than what the budget</strong></p></li>
+<li><p><strong>permits.</strong></p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.selector.Selector.select">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.select" title="Link to this definition"></a></dt>
-<dd><p>Selection strategy.</p>
-<p>All subclasses should override this method. The implementation should
-return a tuple of individuals. Each item in the tuple should also
-be a member of <code class="docutils literal notranslate"><span class="pre">population</span></code>.</p>
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_pool</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Selector.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Selector.select" title="Link to this definition"></a></dt>
+<dd><p>Select individuals from a sequence of individuals.</p>
+<p>All subclasses should override either this method or
+<a class="reference internal" href="#evokit.core.selector.Selector.select_population" title="evokit.core.selector.Selector.select_population"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_population()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>population</strong> – population to select from.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple of selected individuals.</p>
+<dd class="field-odd"><p><strong>from_pool</strong> – tuple of individuals to select from.</p>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.selector.NullSelector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.selector.</span></span><span class="sig-name descname"><span class="pre">NullSelector</span></span><a class="reference internal" href="_modules/evokit/core/selector.html#NullSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.NullSelector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
-<p>Selector that does nothing.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.NullSelector.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/selector.html#NullSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.NullSelector.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.NullSelector.select">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#NullSelector.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.NullSelector.select" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.NullSelector.select_to_many">
-<span class="sig-name descname"><span class="pre">select_to_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#NullSelector.select_to_many"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.NullSelector.select_to_many" title="Link to this definition"></a></dt>
-<dd><p>Select every item in the population.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.selector.SimpleSelector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.selector.</span></span><span class="sig-name descname"><span class="pre">SimpleSelector</span></span><a class="reference internal" href="_modules/evokit/core/selector.html#SimpleSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.SimpleSelector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
-<p>Simple selector that select the highest-fitness individual.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.SimpleSelector.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">budget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/selector.html#SimpleSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.SimpleSelector.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.SimpleSelector.select">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#SimpleSelector.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.SimpleSelector.select" title="Link to this definition"></a></dt>
-<dd><p>Greedy selection.</p>
-<p>Select the item in the population with highest fitness.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.selector.ElitistSimpleSelector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.selector.</span></span><span class="sig-name descname"><span class="pre">ElitistSimpleSelector</span></span><a class="reference internal" href="_modules/evokit/core/selector.html#ElitistSimpleSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.ElitistSimpleSelector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.selector.SimpleSelector" title="evokit.core.selector.SimpleSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSelector</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
-<p>Elitist selector that select the highest-fitness individual.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each item in the returned tuple must be in <code class="code highlight docutils literal notranslate"><span class="pre">from_pool</span></code>.</p>
+<p>The selector should treat higher fitness as “better”.</p>
 <dl class="simple">
-<dt>Example for overriding <cite>select_to_many</cite>. Just overriding <cite>select</cite></dt><dd><p>is not enough, because elitism requires the highest-fitness
-individual of a _population_.</p>
+<dt><a class="reference internal" href="#evokit.core.evaluator.Evaluator" title="evokit.core.evaluator.Evaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code></a> should assign higher fitness to</dt><dd><p>“better” individuals.</p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.ElitistSimpleSelector.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">budget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/selector.html#ElitistSimpleSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.ElitistSimpleSelector.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.ElitistSimpleSelector.select_to_many">
-<span class="sig-name descname"><span class="pre">select_to_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#ElitistSimpleSelector.select_to_many"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.ElitistSimpleSelector.select_to_many" title="Link to this definition"></a></dt>
-<dd><p>Context that implements elitism.</p>
-<p>Preserve and update an elite. Each time the selector is used, insert
-the current elite to the results.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="evokit.core.selector.TournamentSelector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.selector.</span></span><span class="sig-name descname"><span class="pre">TournamentSelector</span></span><a class="reference internal" href="_modules/evokit/core/selector.html#TournamentSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.TournamentSelector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selector</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
-<p>Tournament selector.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.TournamentSelector.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">budget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bracket_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evokit/core/selector.html#TournamentSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.TournamentSelector.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.selector.TournamentSelector.select">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#TournamentSelector.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.TournamentSelector.select" title="Link to this definition"></a></dt>
-<dd><p>Tournament selection.</p>
-<p>Select a uniform sample, then select the best member in that sample.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="evokit.core.selector.Elitist">
-<span class="sig-prename descclassname"><span class="pre">evokit.core.selector.</span></span><span class="sig-name descname"><span class="pre">Elitist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><span class="pre">Selector</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#evokit.core.selector.Selector" title="evokit.core.selector.Selector"><span class="pre">Selector</span></a></span></span><a class="reference internal" href="_modules/evokit/core/selector.html#Elitist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.selector.Elitist" title="Link to this definition"></a></dt>
-<dd><p>Decorator that adds elitism to a selector.</p>
-<p>Retain and update the highest-fitness individual encountered so far.
-Each time the selector is called, append that individual to the end
-of the output population.</p>
-<dl class="simple">
-<dt>Modify <cite>select_to_many</cite> of <cite>sel</cite> to use elitism. If <cite>sel</cite> already</dt><dd><p>overrides <cite>select_to_many</cite>, that implementation is destroyed.</p>
-</dd>
-</dl>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>sel</strong> – A selector</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A selector</p>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If the subclass does not override this
+    method.</p>
 </dd>
 </dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -870,27 +684,26 @@ of the output population.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.variator.Variator.vary">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/variator.html#Variator.vary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.variator.Variator.vary" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/variator.html#Variator.vary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.variator.Variator.vary" title="Link to this definition"></a></dt>
 <dd><p>Apply the variator to a tuple of parents</p>
 <p>Produce a tuple of individuals from a tuple of individuals.
 The input and output tuple sizes should match the arity and coarity of
 this selector, respectively.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the result could have a different
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fitness</span> <span class="pre">.Individual.reset_fitness</span></code>
-than the original individual, call <a class="reference internal" href="#evokit.core.population.Individual.reset_fitness" title="evokit.core.population.Individual.reset_fitness"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.reset_fitness()</span></code></a>
-to clear its fitness.</p>
-</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.variator.Variator.vary_population">
 <span class="sig-name descname"><span class="pre">vary_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><span class="pre">Population</span></a><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/variator.html#Variator.vary_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.variator.Variator.vary_population" title="Link to this definition"></a></dt>
 <dd><p>Vary the population.</p>
-<p>Separate <code class="docutils literal notranslate"><span class="pre">population</span></code> into groups of size <cite>.arity</cite>. For each group,
-call <cite>.vary</cite> with that group as argument, then collect the result.</p>
-<p>At the end, return a <a class="reference internal" href="#evokit.core.population.Population" title="evokit.core.population.Population"><code class="xref py py-class docutils literal notranslate"><span class="pre">Population</span></code></a> of collected results.</p>
+<p>The default implementation separates <code class="docutils literal notranslate"><span class="pre">population</span></code> into groups
+of size <cite>.arity</cite>, call <cite>.vary</cite> with each group as argument,
+then collect and returns the result.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default implementation calls <a class="reference internal" href="#evokit.core.population.Individual.reset_fitness" title="evokit.core.population.Individual.reset_fitness"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.reset_fitness()</span></code></a>
+on each offspring to clear its fitness. Any implementation that
+overrides this method should do the same.</p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -907,7 +720,7 @@ call <cite>.vary</cite> with that group as argument, then collect the result.</p
 
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.variator.NullVariator.vary">
-<span class="sig-name descname"><span class="pre">vary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/variator.html#NullVariator.vary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.variator.NullVariator.vary" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">D</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/evokit/core/variator.html#NullVariator.vary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.variator.NullVariator.vary" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

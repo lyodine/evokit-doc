@@ -4,6 +4,14 @@ evokit.evolvables package
 Submodules
 ----------
 
+evokit.evolvables.algorithms module
+-----------------------------------
+
+.. automodule:: evokit.evolvables.algorithms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 evokit.evolvables.binstring module
 ----------------------------------
 
@@ -40,6 +48,14 @@ evokit.evolvables.lgp module
 ----------------------------
 
 .. automodule:: evokit.evolvables.lgp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evokit.evolvables.selectors module
+----------------------------------
+
+.. automodule:: evokit.evolvables.selectors
    :members:
    :undoc-members:
    :show-inheritance:

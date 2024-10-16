@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -85,11 +85,9 @@
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Self</span>
-    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
     <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
     <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
     <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generic</span>
 <span class="kn">from</span> <span class="nn">.algorithm</span> <span class="kn">import</span> <span class="n">Algorithm</span>
@@ -115,7 +113,7 @@
     <span class="c1">#: Generation count when the event :attr:`event` occurs.</span>
     <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span>
 
-    <span class="c1">#: Data collected in generation :attr:`generation` after event :attr:`event`.</span>
+    <span class="c1">#: Data collected in :attr:`generation` after :attr:`event`.</span>
     <span class="n">value</span><span class="p">:</span> <span class="n">Any</span></div>
 
 
@@ -150,17 +148,18 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Accountant.__init__">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.accountant.Accountant.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">C</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">handlers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">C</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
-<span class="sd">            handlers: a dictionary of `event : handler` mappings. Each `handler`</span>
-<span class="sd">                should have the signature :python:`Algorithm -&gt; Any`:</span>
+<span class="sd">            handlers: a dictionary of `event : handler` mappings.</span>
+<span class="sd">                Each `handler` should have the signature</span>
+<span class="sd">                :python:`Algorithm -&gt; Any`:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1">#: Records collected by the ``Accountant``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AccountantRecord</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AccountantRecord</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="c1">#: `Event - handler` pairs of the ``Accountant``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">C</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">handlers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">C</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">handlers</span>
 
         <span class="c1">#: The attached :class:`Algorithm`</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
@@ -195,13 +194,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">trigger</span><span class="p">,</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">trigger</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">AccountantRecord</span><span class="p">(</span><span class="n">event</span><span class="p">,</span>
-                                                         <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">generation</span><span class="p">,</span>
-                                                         <span class="n">action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">)))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">AccountantRecord</span><span class="p">(</span><span class="n">event</span><span class="p">,</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="o">.</span><span class="n">generation</span><span class="p">,</span>
+                                         <span class="n">action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subject</span><span class="p">)))</span>
 
 <div class="viewcode-block" id="Accountant.publish">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.accountant.Accountant.publish">[docs]</a>
-    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">AccountantRecord</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">AccountantRecord</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Report collected data.</span>
 
 <span class="sd">        Each time an event fires in the attached :class`.Algorithm`,</span>

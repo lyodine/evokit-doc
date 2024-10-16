@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creating a Custom Controller &mdash; evokit  documentation</title>
+  <title>Making a Custom Algorithm &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
@@ -52,18 +52,24 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install-and-build.html">Installing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#base-classes">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#representations">Representations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-tutorials">Advanced Tutorials</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="accountant.html">Collect Runtime Statistics with <code class="docutils literal notranslate"><span class="pre">Accountant</span></code></a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Creating a Custom <code class="docutils literal notranslate"><span class="pre">Controller</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Making a Custom Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Manual-Selection">Manual Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Designing-the-Algorithm">Designing the Algorithm</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="gp.html">Symbolic Regression with Genetic Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lgp.html">Please don’t look at me, I’m not done yet.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interceptor.html">Modifying Operators with the Interceptor Pattern</a></li>
 <li class="toctree-l3"><a class="reference internal" href="onemax.html">Getting Started with OneMax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="onemax.html#Evaluator">Evaluator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selector.html">Creating a Custom <code class="docutils literal notranslate"><span class="pre">Selector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="selector.html">Making a Custom Selector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selector.html#Selector">Selector</a></li>
 </ul>
 </li>
@@ -90,7 +96,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Guides</a></li>
-      <li class="breadcrumb-item active">Creating a Custom <code class="docutils literal notranslate"><span class="pre">Controller</span></code></li>
+      <li class="breadcrumb-item active">Making a Custom Algorithm</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/guides/examples/algorithm.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,22 +106,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Creating-a-Custom-Controller">
-<h1>Creating a Custom <code class="docutils literal notranslate"><span class="pre">Controller</span></code><a class="headerlink" href="#Creating-a-Custom-Controller" title="Link to this heading"></a></h1>
+  <section id="Making-a-Custom-Algorithm">
+<h1>Making a Custom Algorithm<a class="headerlink" href="#Making-a-Custom-Algorithm" title="Link to this heading"></a></h1>
+<p>In EvoKit, an algorithm combines operators to perform the training process.</p>
+<p>This example defines an <span class="math notranslate nohighlight">\((\mu+\lambda)\)</span> algorithm that maintains one population and accepts one set operators (including one evaluator, one selector, and one variator). These characteristics can be customised.</p>
+<center><p><img alt="62bb2efe31544344b001e2e47d89a5cd" src="../../_images/emperor.svg" /></p>
+</center><p>See the following table for guides on how to define individual operators:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Guide</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Individual</span></code></p></td>
+<td><p><a class="reference internal" href="onemax.html#Representation"><span class="std std-ref">OneMax tutorial</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></p></td>
+<td><p><a class="reference internal" href="onemax.html#Evaluator"><span class="std std-ref">Selector tutorial</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Selector</span></code></p></td>
+<td><p><a class="reference internal" href="selector.html"><span class="doc">OneMax tutorial</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Variator</span></code></p></td>
+<td><p><a class="reference internal" href="onemax.html#Variator"><span class="std std-ref">OneMax tutorial</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<section id="Manual-Selection">
+<h2>Manual Selection<a class="headerlink" href="#Manual-Selection" title="Link to this heading"></a></h2>
+<p>The algorithm automates the training of evolutionary algorithms. To understand the process, it is best to train an algorithm by hand.</p>
+<p>Skip to <a class="reference internal" href="#Designing-the-Algorithm"><span class="std std-ref">Designing the Algorithm</span></a> for how an algorithm is defined.</p>
+<section id="Initialise-Population">
+<h3>Initialise Population<a class="headerlink" href="#Initialise-Population" title="Link to this heading"></a></h3>
+<p>The evolutionary process acts not on individuals, but populations.</p>
+<p>To begin, create the initial <code class="docutils literal notranslate"><span class="pre">Population</span></code> of bit string representations. Check that the individuals are correctly initialised. A population in EvoKit essentially behaves like a <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">nb_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">nb_dir</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nb_dir</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Population</span>
@@ -123,9 +150,8 @@
 </pre></div>
 </div>
 </div>
-<p>First create a <code class="docutils literal notranslate"><span class="pre">Population</span></code>. This example uses the binary string representation.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="p">:</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]</span> <span class="o">=</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]()</span>
@@ -133,9 +159,6 @@
 <span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;11111&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;11110&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;11100&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;11000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
 </pre></div>
@@ -146,18 +169,21 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;, &#39;[1, 1, 0, 0, 0]&#39;, &#39;[1, 0, 0, 0, 0]&#39;, &#39;[0, 0, 0, 0, 0]&#39;]
+[&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
 </pre></div></div>
 </div>
-<p>When an BinaryString is created, it has yet to be evaluated. Attempting to access its <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> attribute raises an error.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> attribute of an individual stores its fitness. For new individuals, this attribute is uninitialised and accessing it raises an error.</p>
+<p>To check if the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> is initialised, call <code class="docutils literal notranslate"><span class="pre">.has_fitness</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fitness</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> is raised, with message </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It is _</span><span class="si">{</span><span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">has_fitness</span><span class="p">()</span><span class="si">}</span><span class="s2">_ that the fitness of `pop[0]` is defined.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -166,84 +192,26 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-An ValueError is raised, with message &#34;Score is accessed but null&#34;
+An ValueError is raised, with message &#34;Fitness is accessed but null.
+   Call `.has_fitness` to check if the fitness is defined.&#34;
+It is _False_ that the fitness of `pop[0]` is defined.
 </pre></div></div>
 </div>
-<p>The selector only operates on individuals whose <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> is defined. Import an evaluator for <code class="docutils literal notranslate"><span class="pre">BinaryString</span></code> to evaluate all items in <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p>
+</section>
+<section id="Variate">
+<h3>Variate<a class="headerlink" href="#Variate" title="Link to this heading"></a></h3>
+<p>A variator creates new individuals (offspring) from existing individuals. A mutator, in particular, is a variator that uses only one parent. All variators in EvoKit must ensure that operations performed on offspring do not affect the parent.</p>
+<p>The canonical mutator (<code class="docutils literal notranslate"><span class="pre">MutateBits</span></code>) for bit strings flips each digit with probability <code class="docutils literal notranslate"><span class="pre">mutation_rate</span></code>. Applying the mutator to the population creates a new population.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">CountBits</span>
-
-<span class="n">CountBits</span><span class="p">()</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">pop</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitness of </span><span class="si">{</span><span class="n">individual</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">individual</span><span class="o">.</span><span class="n">fitness</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Fitness of [1, 1, 1, 1, 1] is 5
-Fitness of [1, 1, 1, 1, 0] is 4
-Fitness of [1, 1, 1, 0, 0] is 3
-Fitness of [1, 1, 0, 0, 0] is 2
-Fitness of [1, 0, 0, 0, 0] is 1
-Fitness of [0, 0, 0, 0, 0] is 0
-</pre></div></div>
-</div>
-<p>A selector selects from a <code class="docutils literal notranslate"><span class="pre">Population</span></code> into a strict subset of it. For each item selected into this subset, that item is removed from the original <code class="docutils literal notranslate"><span class="pre">Population</span></code> to prevent duplication of references.</p>
-<p>This example uses a <code class="docutils literal notranslate"><span class="pre">SimpleSelector</span></code>, which simply selects a number of individuals with the highest <code class="docutils literal notranslate"><span class="pre">.fitness</span></code>. Set <code class="docutils literal notranslate"><span class="pre">budget=3</span></code> to select 3 such individuals.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">SimpleSelector</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">SimpleSelector</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">original_population</span> <span class="o">=</span> <span class="n">pop</span>
-<span class="n">parents</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">select_to_population</span><span class="p">(</span><span class="n">original_population</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original population has items </span><span class="si">{</span><span class="n">original_population</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output population has items </span><span class="si">{</span><span class="n">parents</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Original population has items [&#39;[1, 1, 0, 0, 0]&#39;, &#39;[1, 0, 0, 0, 0]&#39;, &#39;[0, 0, 0, 0, 0]&#39;]
-Output population has items [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
-</pre></div></div>
-</div>
-<p>A variator creates new individuals from existing individuals. Here, use <code class="docutils literal notranslate"><span class="pre">MutateBits</span></code> which randomly flips each bit with probability <code class="docutils literal notranslate"><span class="pre">mutation_rate</span></code>. Use 0.1 for now.</p>
-<p>Apply the mutator to output_population to create a new population of offspring. Note that, unlike selectors, variators do not affect the <code class="docutils literal notranslate"><span class="pre">Population</span></code> that is given argument.</p>
-<p>Notice that not all items in the survivor pool are changed. With <code class="docutils literal notranslate"><span class="pre">mutation_rate=0.1</span></code>, there is a probability of 0.6 that the variator does not affect an individual. The first and third individuals are duplicated exactly.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">24601</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">MutateBits</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">MutateBits</span>
 <span class="n">variator</span> <span class="o">=</span> <span class="n">MutateBits</span><span class="p">(</span><span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="n">survivors</span> <span class="o">=</span> <span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parent:    </span><span class="si">{</span><span class="n">parents</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Offspring: </span><span class="si">{</span><span class="n">survivors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">offspring</span> <span class="o">=</span> <span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parent:    </span><span class="si">{</span><span class="n">pop</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Offspring: </span><span class="si">{</span><span class="n">offspring</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -253,12 +221,86 @@ Output population has items [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Parent:    [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
-Offspring: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 0, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
+Offspring: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[0, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
 </pre></div></div>
 </div>
-<p>Put everything together, define a <code class="docutils literal notranslate"><span class="pre">Controller</span></code> that automates this process. The algorithm can take one</p>
+</section>
+<section id="Evaluate">
+<h3>Evaluate<a class="headerlink" href="#Evaluate" title="Link to this heading"></a></h3>
+<p>The evaluator assigns to the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> of all individuals in a population.</p>
+<p>Evaluation sets the stage for selection. Consider which population the algorithm selects from: using <span class="math notranslate nohighlight">\((\mu+\lambda)\)</span>, offspring competes with parents for selection. To implement this, call <code class="docutils literal notranslate"><span class="pre">Population.join</span></code> to create a population that includes individuals from <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">offspring</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joined_pool</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">offspring</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The canonical evaluator (<code class="docutils literal notranslate"><span class="pre">CountBits</span></code>) for bit strings sums all digits in the string. Once the evaluator is initialised, call <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> with the population as argument. Check that all individuals in the population are correctly evaluated.</p>
+<p>Note: unlike its counterparts <code class="docutils literal notranslate"><span class="pre">Variator.vary_population</span></code> and <code class="docutils literal notranslate"><span class="pre">Selector.select_population</span></code>, <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> does not return a value but rather modifies an attribute of its argument. To prevent any misunderstanding, <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> explicitly returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">CountBits</span>
+
+<span class="n">CountBits</span><span class="p">()</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="n">joined_pool</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">joined_pool</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitness of </span><span class="si">{</span><span class="n">individual</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">individual</span><span class="o">.</span><span class="n">fitness</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Fitness of [1, 1, 1, 1, 1] is (5,)
+Fitness of [1, 1, 1, 1, 0] is (4,)
+Fitness of [1, 1, 1, 0, 0] is (3,)
+Fitness of [1, 1, 1, 0, 1] is (4,)
+Fitness of [0, 1, 1, 1, 1] is (4,)
+Fitness of [1, 1, 1, 0, 0] is (3,)
+</pre></div></div>
+</div>
+</section>
+<section id="Select">
+<h3>Select<a class="headerlink" href="#Select" title="Link to this heading"></a></h3>
+<p>A selector selects from a <code class="docutils literal notranslate"><span class="pre">Population</span></code> into a strict subset. The <code class="docutils literal notranslate"><span class="pre">TruncationSelector</span></code>, in particular, selects individuals with the highest <code class="docutils literal notranslate"><span class="pre">.fitness</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.selectors</span> <span class="kn">import</span> <span class="n">TruncationSelector</span>
+
+<span class="n">new_pop</span> <span class="o">=</span> <span class="n">TruncationSelector</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">select_population</span><span class="p">(</span><span class="n">joined_pool</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;From </span><span class="si">{</span><span class="n">joined_pool</span><span class="si">}</span><span class="s2">, the truncation selector</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;    selects </span><span class="si">{</span><span class="n">new_pop</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[0, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 0, 0]&#39;], the truncation selector
+    selects [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[0, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;].
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Designing-the-Algorithm">
+<h2>Designing the Algorithm<a class="headerlink" href="#Designing-the-Algorithm" title="Link to this heading"></a></h2>
+<p>Time to automate! To implement a custom algorithm, extend <code class="docutils literal notranslate"><span class="pre">Algorithm</span></code> and override at least two of its methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.__init__</span></code> initialises parameters of the algorithm itself. In this example, it accepts the initial population and a minimal set of operators.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.step</span></code> performs one iteration.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Algorithm</span>
@@ -281,28 +323,25 @@ Offspring: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 0, 1, 0]&#39;, &#39;[1, 1, 1,
 
     <span class="nd">@override</span>
     <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">))</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">selector</span><span class="o">.</span><span class="n">select_to_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selector</span><span class="o">.</span><span class="n">select_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>This time, create random individuals by calling <code class="docutils literal notranslate"><span class="pre">BinaryString.random</span></code>.</p>
+<p>The creation of individuals can also be automated. For example, <code class="docutils literal notranslate"><span class="pre">BinaryString.random</span></code> creates random binary strings of a given length. Take advantage of this to create a initial population.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_pop</span> <span class="o">=</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]()</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">another_pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_pop</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">BinaryString</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+                                       <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial population: </span><span class="si">{</span><span class="n">another_pop</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">ctrl</span> <span class="o">=</span> <span class="n">ExampleAlgorithm</span><span class="p">(</span><span class="n">another_pop</span><span class="p">,</span>
-                         <span class="n">CountBits</span><span class="p">(),</span>
-                         <span class="n">SimpleSelector</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
-                         <span class="n">MutateBits</span><span class="p">(</span><span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -311,12 +350,24 @@ Offspring: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 0, 1, 0]&#39;, &#39;[1, 1, 1,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Initial population: [&#39;[0, 0, 1, 1, 0]&#39;, &#39;[0, 1, 1, 1, 0]&#39;, &#39;[0, 0, 1, 0, 1]&#39;, &#39;[0, 0, 0, 1, 0]&#39;, &#39;[0, 1, 0, 1, 1]&#39;]
+Initial population: [&#39;[0, 0, 0, 0, 1]&#39;, &#39;[1, 0, 0, 1, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;]
 </pre></div></div>
+</div>
+<p>Initialise an algorithm with <code class="docutils literal notranslate"><span class="pre">another_pop</span></code> as its initial population, using operators mentioned above.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">=</span> <span class="n">MuPlusLambda</span><span class="p">(</span><span class="n">another_pop</span><span class="p">,</span>
+                        <span class="n">CountBits</span><span class="p">(),</span>
+                        <span class="n">TruncationSelector</span><span class="p">(</span><span class="n">budget</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+                        <span class="n">MutateBits</span><span class="p">(</span><span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 <p>Run the algorithm. Observe that each iteration results in a new population. This is because <code class="docutils literal notranslate"><span class="pre">ExampleAlgorithm</span></code> replaces the entirely of its population with the survivor pool. Doing so might, as is shown in the example, result in an decrease in fitness.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -331,28 +382,29 @@ Initial population: [&#39;[0, 0, 1, 1, 0]&#39;, &#39;[0, 1, 1, 1, 0]&#39;, &#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 0, 1, 1, 1]&#39;, &#39;[0, 1, 1, 1, 0]&#39;]
-Current fitnesses: [4, 3, 3]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 0, 1, 1, 1]&#39;, &#39;[0, 1, 1, 1, 0]&#39;]
-Current fitnesses: [4, 3, 3]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 0, 1, 1, 1]&#39;, &#39;[0, 1, 1, 0, 0]&#39;]
-Current fitnesses: [4, 3, 2]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 1, 1, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [4, 2, 1]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 1, 1, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [4, 2, 1]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 1, 1, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [4, 2, 1]
-Current population: [&#39;[1, 1, 0, 1, 1]&#39;, &#39;[0, 1, 0, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [4, 1, 1]
-Current population: [&#39;[0, 1, 0, 1, 1]&#39;, &#39;[1, 1, 0, 0, 0]&#39;, &#39;[0, 0, 0, 0, 0]&#39;]
-Current fitnesses: [3, 2, 0]
-Current population: [&#39;[0, 1, 0, 0, 1]&#39;, &#39;[1, 1, 0, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [2, 2, 1]
-Current population: [&#39;[1, 1, 1, 0, 0]&#39;, &#39;[0, 1, 0, 0, 0]&#39;, &#39;[0, 0, 0, 1, 0]&#39;]
-Current fitnesses: [3, 1, 1]
+Current population: [&#39;[1, 0, 0, 1, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;]
+Current fitnesses: [(3,), (4,), (4,)]
+Current population: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;]
+Current fitnesses: [(4,), (4,), (4,)]
+Current population: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;]
+Current fitnesses: [(4,), (4,), (4,)]
+Current population: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(4,), (4,), (5,)]
+Current population: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(4,), (5,), (5,)]
+Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(5,), (5,), (5,)]
+Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(5,), (5,), (5,)]
+Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(5,), (5,), (5,)]
+Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(5,), (5,), (5,)]
+Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current fitnesses: [(5,), (5,), (5,)]
 </pre></div></div>
 </div>
+</section>
 </section>
 
 

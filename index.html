@@ -50,7 +50,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -91,17 +91,17 @@
 </div>
 <section id="evokit-documentation">
 <h1>EvoKit Documentation<a class="headerlink" href="#evokit-documentation" title="Link to this heading"></a></h1>
-<p><strong>EvoKit</strong> is an evolutionary computation framework written in Python. The framework can implement a large range of interoperating representations and operators.</p>
+<p><strong>EvoKit</strong> is an evolutionary computation framework written in Python. See <a class="reference internal" href="why.html"><span class="doc">Why EvoKit?</span></a> for what sets it apart.</p>
 <p>Using EvoKit is easy! With all operators defined, you can run an evolutionary algorithm in just 7 lines! <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="ss">ctrl</span><span class="p">:</span><span class="w"> </span><span class="no">SimpleLinearController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">SimpleLinearConstroller</span><span class="p">(</span>
-<span class="linenos">2</span><span class="w">   </span><span class="n">population</span><span class="o">=</span><span class="n">init_pop</span><span class="p">,</span>
-<span class="linenos">3</span><span class="w">   </span><span class="n">variator</span><span class="o">=</span><span class="no">RandomBitMutator</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">),</span>
-<span class="linenos">4</span><span class="w">   </span><span class="n">selector</span><span class="o">=</span><span class="no">Elitist</span><span class="p">(</span><span class="no">SimpleSelector</span><span class="o">[</span><span class="no">BinaryString</span><span class="o">]</span><span class="p">(</span><span class="no">POPULATION_SIZE</span><span class="p">)),</span>
-<span class="linenos">5</span><span class="w">   </span><span class="n">evaluator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">BitDistanceEvaluator</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">ctrl</span><span class="p">:</span> <span class="n">SimpleLinearAlgorithm</span> <span class="o">=</span> <span class="n">SimpleLinearAlgorithm</span><span class="p">(</span>
+<span class="linenos">2</span>   <span class="n">population</span><span class="o">=</span><span class="n">init_pop</span><span class="p">,</span>
+<span class="linenos">3</span>   <span class="n">variator</span><span class="o">=</span><span class="n">RandomBitMutator</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+<span class="linenos">4</span>   <span class="n">selector</span><span class="o">=</span><span class="n">Elitist</span><span class="p">(</span><span class="n">TruncationSelector</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">](</span><span class="n">POPULATION_SIZE</span><span class="p">)),</span>
+<span class="linenos">5</span>   <span class="n">evaluator</span> <span class="o">=</span> <span class="n">BitDistanceEvaluator</span><span class="p">()</span>
 <span class="linenos">6</span><span class="p">)</span>
 <span class="linenos">7</span>
-<span class="linenos">8</span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="no">GENERATION_COUNT</span><span class="p">):</span>
-<span class="linenos">9</span><span class="w">   </span><span class="n">ctrl</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="linenos">8</span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GENERATION_COUNT</span><span class="p">):</span>
+<span class="linenos">9</span>   <span class="n">ctrl</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -114,19 +114,21 @@
 <li class="toctree-l2"><a class="reference internal" href="why.html#completely-documented">Completely Documented</a></li>
 <li class="toctree-l2"><a class="reference internal" href="why.html#well-described">Well Described</a></li>
 <li class="toctree-l2"><a class="reference internal" href="why.html#transparent">Transparent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="why.html#reproducible">Reproducible</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install-and-built.html">Installing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install-and-built.html#install-from-source">Install from source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-and-built.html#build-a-source-distribution">Build a source distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-and-built.html#build-a-built-distribution-wheel">Build a built distribution (wheel)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-and-built.html#build-documentation">Build Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-and-built.html#trial-run">Trial Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-and-build.html">Installing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install-and-build.html#install-from-pipy">Install from PiPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-and-build.html#install-from-source">Install from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-and-build.html#build-documentation">Build Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-and-build.html#trial-run">Trial Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-and-build.html#optional-dependencies">Optional Dependencies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/index.html#base-classes">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/index.html#representations">Representations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/index.html#advanced-tutorials">Advanced Tutorials</a></li>
 </ul>
 </li>

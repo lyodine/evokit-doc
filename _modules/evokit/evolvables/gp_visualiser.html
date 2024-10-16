@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -117,7 +117,8 @@
 <span class="sd">        identifier when called.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">expr</span><span class="p">:</span> <span class="n">Expression</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">genome</span>
-    <span class="n">my_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">my_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>\
+        <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
     <span class="n">my_ident</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dispatcher</span><span class="p">()</span>
     <span class="n">dot</span><span class="p">:</span> <span class="n">Digraph</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s2">&quot;GP Visualisation&quot;</span><span class="p">)</span>
     <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">my_ident</span><span class="p">,</span> <span class="n">my_name</span><span class="p">)</span>
@@ -147,7 +148,8 @@
 <span class="sd">        dispatcher: :class:`Callable` that should return a unique</span>
 <span class="sd">        identifier when called.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">my_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">my_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>\
+        <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
     <span class="n">my_ident</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dispatcher</span><span class="p">()</span>
 
     <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">my_ident</span><span class="p">,</span> <span class="n">my_name</span><span class="p">)</span>

@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -91,6 +91,7 @@
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
@@ -118,10 +119,6 @@
       <ul>
         <li><a href="evokit.core.html#evokit.core.algorithm.Algorithm.__init__">(evokit.core.algorithm.Algorithm method)</a>
 </li>
-        <li><a href="evokit.core.html#evokit.core.algorithm.LinearAlgorithm.__init__">(evokit.core.algorithm.LinearAlgorithm method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.algorithm.SimpleLinearAlgorithm.__init__">(evokit.core.algorithm.SimpleLinearAlgorithm method)</a>
-</li>
         <li><a href="evokit.core.html#evokit.core.evaluator.Evaluator.__init__">(evokit.core.evaluator.Evaluator method)</a>
 </li>
         <li><a href="evokit.core.html#evokit.core.population.AbstractCollection.__init__">(evokit.core.population.AbstractCollection method)</a>
@@ -130,19 +127,15 @@
 </li>
         <li><a href="evokit.core.html#evokit.core.population.Population.__init__">(evokit.core.population.Population method)</a>
 </li>
-        <li><a href="evokit.core.html#evokit.core.selector.ElitistSimpleSelector.__init__">(evokit.core.selector.ElitistSimpleSelector method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.selector.NullSelector.__init__">(evokit.core.selector.NullSelector method)</a>
-</li>
         <li><a href="evokit.core.html#evokit.core.selector.Selector.__init__">(evokit.core.selector.Selector method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.selector.SimpleSelector.__init__">(evokit.core.selector.SimpleSelector method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.selector.TournamentSelector.__init__">(evokit.core.selector.TournamentSelector method)</a>
 </li>
         <li><a href="evokit.core.html#evokit.core.variator.NullVariator.__init__">(evokit.core.variator.NullVariator method)</a>
 </li>
         <li><a href="evokit.core.html#evokit.core.variator.Variator.__init__">(evokit.core.variator.Variator method)</a>
+</li>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.LinearAlgorithm.__init__">(evokit.evolvables.algorithms.LinearAlgorithm method)</a>
+</li>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.SimpleLinearAlgorithm.__init__">(evokit.evolvables.algorithms.SimpleLinearAlgorithm method)</a>
 </li>
         <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.BinaryString.__init__">(evokit.evolvables.binstring.BinaryString method)</a>
 </li>
@@ -191,6 +184,12 @@
         <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.ValueRange.__init__">(evokit.evolvables.lgp.ValueRange method)</a>
 </li>
         <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.While.__init__">(evokit.evolvables.lgp.While method)</a>
+</li>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.NullSelector.__init__">(evokit.evolvables.selectors.NullSelector method)</a>
+</li>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TournamentSelector.__init__">(evokit.evolvables.selectors.TournamentSelector method)</a>
+</li>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TruncationSelector.__init__">(evokit.evolvables.selectors.TruncationSelector method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -253,11 +252,17 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.check">check() (evokit.evolvables.lgp.LinearProgram method)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.CellSpecifier">CellSpecifier (in module evokit.evolvables.lgp)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.check_condition">check_condition() (evokit.evolvables.lgp.LinearProgram method)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.BinaryString.clear">clear() (evokit.evolvables.binstring.BinaryString method)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.Condition">Condition (class in evokit.evolvables.lgp)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.StateVectorType.constant">constant (evokit.evolvables.lgp.StateVectorType attribute)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.constants">constants (evokit.evolvables.lgp.LinearProgram attribute)</a>
 </li>
       <li><a href="evokit.core.html#evokit.core.population.Individual.copy">copy() (evokit.core.population.Individual method)</a>
 
@@ -299,15 +304,11 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.selector.Elitist">Elitist() (in module evokit.core.selector)</a>
-</li>
-      <li><a href="evokit.core.html#evokit.core.selector.ElitistSimpleSelector">ElitistSimpleSelector (class in evokit.core.selector)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.Elitist">Elitist() (in module evokit.evolvables.selectors)</a>
 </li>
       <li><a href="evokit.core.html#evokit.core.evaluator.Evaluator.evaluate">evaluate() (evokit.core.evaluator.Evaluator method)</a>
 
       <ul>
-        <li><a href="evokit.core.html#evokit.core.evaluator.NullEvaluator.evaluate">(evokit.core.evaluator.NullEvaluator method)</a>
-</li>
         <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.CountBits.evaluate">(evokit.evolvables.binstring.CountBits method)</a>
 </li>
         <li><a href="evokit.evolvables.html#evokit.evolvables.gp.PenaliseNodeCount.evaluate">(evokit.evolvables.gp.PenaliseNodeCount method)</a>
@@ -358,8 +359,6 @@
         <li><a href="evokit.core.html#module-evokit.core.evaluator">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     evokit.core.population
 
@@ -367,6 +366,8 @@
         <li><a href="evokit.core.html#module-evokit.core.population">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     evokit.core.selector
 
@@ -386,6 +387,13 @@
 
       <ul>
         <li><a href="evokit.evolvables.html#module-evokit.evolvables">module</a>
+</li>
+      </ul></li>
+      <li>
+    evokit.evolvables.algorithms
+
+      <ul>
+        <li><a href="evokit.evolvables.html#module-evokit.evolvables.algorithms">module</a>
 </li>
       </ul></li>
       <li>
@@ -423,11 +431,16 @@
         <li><a href="evokit.evolvables.html#module-evokit.evolvables.lgp">module</a>
 </li>
       </ul></li>
+      <li>
+    evokit.evolvables.selectors
+
+      <ul>
+        <li><a href="evokit.evolvables.html#module-evokit.evolvables.selectors">module</a>
+</li>
+      </ul></li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.gp.Expression">Expression (class in evokit.evolvables.gp)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.gp.ExpressionFactory">ExpressionFactory (class in evokit.evolvables.gp)</a>
-</li>
-      <li><a href="evokit.core.html#evokit.core.population.AbstractCollection.extend">extend() (evokit.core.population.AbstractCollection method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -463,6 +476,8 @@
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.BinaryString.get">get() (evokit.evolvables.binstring.BinaryString method)</a>
 </li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.get_state_vector">get_state_vector() (evokit.evolvables.lgp.LinearProgram method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -485,13 +500,23 @@
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.If">If (class in evokit.evolvables.lgp)</a>
 </li>
+      <li><a href="evokit.core.html#evokit.core.population.Individual">Individual (class in evokit.core.population)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.population.Individual">Individual (class in evokit.core.population)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.StateVectorType.input">input (evokit.evolvables.lgp.StateVectorType attribute)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.Instruction">Instruction (class in evokit.evolvables.lgp)</a>
 </li>
       <li><a href="evokit.core.html#evokit.core.accountant.Accountant.is_registered">is_registered() (evokit.core.accountant.Accountant method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="evokit.core.html#evokit.core.population.AbstractCollection.join">join() (evokit.core.population.AbstractCollection method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -505,9 +530,11 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.algorithm.LinearAlgorithm">LinearAlgorithm (class in evokit.core.algorithm)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.LinearAlgorithm">LinearAlgorithm (class in evokit.evolvables.algorithms)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram">LinearProgram (class in evokit.evolvables.lgp)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.While.loop_cap">loop_cap (evokit.evolvables.lgp.While attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -541,6 +568,8 @@
 </li>
         <li><a href="evokit.evolvables.html#module-evokit.evolvables">evokit.evolvables</a>
 </li>
+        <li><a href="evokit.evolvables.html#module-evokit.evolvables.algorithms">evokit.evolvables.algorithms</a>
+</li>
         <li><a href="evokit.evolvables.html#module-evokit.evolvables.binstring">evokit.evolvables.binstring</a>
 </li>
         <li><a href="evokit.evolvables.html#module-evokit.evolvables.funcs">evokit.evolvables.funcs</a>
@@ -550,6 +579,8 @@
         <li><a href="evokit.evolvables.html#module-evokit.evolvables.gp_visualiser">evokit.evolvables.gp_visualiser</a>
 </li>
         <li><a href="evokit.evolvables.html#module-evokit.evolvables.lgp">evokit.evolvables.lgp</a>
+</li>
+        <li><a href="evokit.evolvables.html#module-evokit.evolvables.selectors">evokit.evolvables.selectors</a>
 </li>
       </ul></li>
   </ul></td>
@@ -570,11 +601,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="evokit.evolvables.html#evokit.evolvables.gp.Expression.nodes">nodes() (evokit.evolvables.gp.Expression method)</a>
 </li>
-      <li><a href="evokit.core.html#evokit.core.evaluator.NullEvaluator">NullEvaluator (class in evokit.core.evaluator)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.selector.NullSelector">NullSelector (class in evokit.core.selector)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.NullSelector">NullSelector (class in evokit.evolvables.selectors)</a>
 </li>
       <li><a href="evokit.core.html#evokit.core.variator.NullVariator">NullVariator (class in evokit.core.variator)</a>
 </li>
@@ -622,16 +651,20 @@
 </li>
       <li><a href="evokit.core.html#evokit.core.accountant.Accountant.records">records (evokit.core.accountant.Accountant attribute)</a>
 </li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.StateVectorType.register">register (evokit.evolvables.lgp.StateVectorType attribute)</a>
+</li>
       <li><a href="evokit.core.html#evokit.core.algorithm.Algorithm.register">register() (evokit.core.algorithm.Algorithm method)</a>
 </li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.registers">registers (evokit.evolvables.lgp.LinearProgram attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="evokit.core.html#evokit.core.population.Individual.reset_fitness">reset_fitness() (evokit.core.population.Individual method)</a>
 
       <ul>
         <li><a href="evokit.core.html#evokit.core.population.Population.reset_fitness">(evokit.core.population.Population method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="evokit.core.html#evokit.core.evaluator.Evaluator.retain_fitness">retain_fitness (evokit.core.evaluator.Evaluator attribute)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.run">run() (evokit.evolvables.lgp.LinearProgram method)</a>
@@ -644,46 +677,46 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.selector.NullSelector.select">select() (evokit.core.selector.NullSelector method)</a>
+      <li><a href="evokit.core.html#evokit.core.selector.Selector.select">select() (evokit.core.selector.Selector method)</a>
 
       <ul>
-        <li><a href="evokit.core.html#evokit.core.selector.Selector.select">(evokit.core.selector.Selector method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.selector.SimpleSelector.select">(evokit.core.selector.SimpleSelector method)</a>
-</li>
-        <li><a href="evokit.core.html#evokit.core.selector.TournamentSelector.select">(evokit.core.selector.TournamentSelector method)</a>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TournamentSelector.select">(evokit.evolvables.selectors.TournamentSelector method)</a>
 </li>
       </ul></li>
-      <li><a href="evokit.core.html#evokit.core.selector.ElitistSimpleSelector.select_to_many">select_to_many() (evokit.core.selector.ElitistSimpleSelector method)</a>
+      <li><a href="evokit.core.html#evokit.core.selector.Selector.select_population">select_population() (evokit.core.selector.Selector method)</a>
 
       <ul>
-        <li><a href="evokit.core.html#evokit.core.selector.NullSelector.select_to_many">(evokit.core.selector.NullSelector method)</a>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.NullSelector.select_population">(evokit.evolvables.selectors.NullSelector method)</a>
 </li>
-        <li><a href="evokit.core.html#evokit.core.selector.Selector.select_to_many">(evokit.core.selector.Selector method)</a>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TruncationSelector.select_population">(evokit.evolvables.selectors.TruncationSelector method)</a>
 </li>
       </ul></li>
-      <li><a href="evokit.core.html#evokit.core.selector.Selector.select_to_population">select_to_population() (evokit.core.selector.Selector method)</a>
-</li>
       <li><a href="evokit.core.html#evokit.core.selector.Selector">Selector (class in evokit.core.selector)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.BinaryString.set">set() (evokit.evolvables.binstring.BinaryString method)</a>
 </li>
-      <li><a href="evokit.core.html#evokit.core.algorithm.SimpleLinearAlgorithm">SimpleLinearAlgorithm (class in evokit.core.algorithm)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.set_constants">set_constants() (evokit.evolvables.lgp.LinearProgram method)</a>
 </li>
-      <li><a href="evokit.core.html#evokit.core.selector.SimpleSelector">SimpleSelector (class in evokit.core.selector)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.set_inputs">set_inputs() (evokit.evolvables.lgp.LinearProgram method)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.LinearProgram.set_registers">set_registers() (evokit.evolvables.lgp.LinearProgram method)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.SimpleLinearAlgorithm">SimpleLinearAlgorithm (class in evokit.evolvables.algorithms)</a>
 </li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.funcs.sin">sin() (in module evokit.evolvables.funcs)</a>
 </li>
+      <li><a href="evokit.core.html#evokit.core.population.Population.sort">sort() (evokit.core.population.Population method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.population.Population.sort">sort() (evokit.core.population.Population method)</a>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.StateVectorType">StateVectorType (class in evokit.evolvables.lgp)</a>
 </li>
       <li><a href="evokit.core.html#evokit.core.algorithm.Algorithm.step">step() (evokit.core.algorithm.Algorithm method)</a>
 
       <ul>
-        <li><a href="evokit.core.html#evokit.core.algorithm.LinearAlgorithm.step">(evokit.core.algorithm.LinearAlgorithm method)</a>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.LinearAlgorithm.step">(evokit.evolvables.algorithms.LinearAlgorithm method)</a>
 </li>
-        <li><a href="evokit.core.html#evokit.core.algorithm.SimpleLinearAlgorithm.step">(evokit.core.algorithm.SimpleLinearAlgorithm method)</a>
+        <li><a href="evokit.evolvables.html#evokit.evolvables.algorithms.SimpleLinearAlgorithm.step">(evokit.evolvables.algorithms.SimpleLinearAlgorithm method)</a>
 </li>
       </ul></li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.lgp.StructNextLine">StructNextLine (class in evokit.evolvables.lgp)</a>
@@ -712,11 +745,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="evokit.evolvables.html#evokit.evolvables.funcs.tan">tan() (in module evokit.evolvables.funcs)</a>
 </li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TournamentSelector">TournamentSelector (class in evokit.evolvables.selectors)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="evokit.core.html#evokit.core.selector.TournamentSelector">TournamentSelector (class in evokit.core.selector)</a>
-</li>
       <li><a href="evokit.evolvables.html#evokit.evolvables.binstring.trial_run">trial_run() (in module evokit.evolvables.binstring)</a>
+</li>
+      <li><a href="evokit.evolvables.html#evokit.evolvables.selectors.TruncationSelector">TruncationSelector (class in evokit.evolvables.selectors)</a>
 </li>
   </ul></td>
 </tr></table>

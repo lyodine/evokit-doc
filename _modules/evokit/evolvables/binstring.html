@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install-and-build.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guides/index.html">Guides</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
@@ -83,14 +83,15 @@
 
 
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeVar</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
 
-<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">SimpleLinearAlgorithm</span>
 <span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Evaluator</span>
 <span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Individual</span><span class="p">,</span> <span class="n">Population</span>
-<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Elitist</span><span class="p">,</span> <span class="n">SimpleSelector</span>
 <span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Variator</span>
 
+<span class="kn">from</span> <span class="nn">.algorithms</span> <span class="kn">import</span> <span class="n">SimpleLinearAlgorithm</span>
+<span class="kn">from</span> <span class="nn">.selectors</span> <span class="kn">import</span> <span class="n">Elitist</span><span class="p">,</span> <span class="n">TruncationSelector</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Self</span><span class="p">,</span> <span class="n">Sequence</span>
 
 <span class="kn">import</span> <span class="nn">random</span>
@@ -230,7 +231,8 @@
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">bin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]])[</span><span class="o">-</span><span class="n">size</span><span class="p">:])</span>
+            <span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">bin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genome</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]])</span>
+            <span class="p">[</span><span class="o">-</span><span class="n">size</span><span class="p">:])</span>
 
     <span class="k">def</span> <span class="nf">_assert_pos_out_of_bound</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Assert that an index is within bound of this bit string.</span>
@@ -239,7 +241,7 @@
 <span class="sd">            pos: An index.</span>
 
 <span class="sd">        Raise:</span>
-<span class="sd">            IndexError: If :arg:`pos` is outside of range :math:`[0, self.size-1]`</span>
+<span class="sd">            IndexError: If :arg:`pos` is not in range ``[0 ... self.size-1]``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2"> is out of bound for a binary&quot;</span>
@@ -291,7 +293,8 @@
 
 <div class="viewcode-block" id="MutateBits.vary">
 <a class="viewcode-back" href="../../../evokit.evolvables.html#evokit.evolvables.binstring.MutateBits.vary">[docs]</a>
-    <span class="k">def</span> <span class="nf">vary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parents</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">vary</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span>
+             <span class="n">parents</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
         <span class="n">offspring</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">offspring</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
@@ -315,10 +318,10 @@
         <span class="n">init_pop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BinaryString</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">BINSTRING_LENGTH</span><span class="p">))</span>
 
     <span class="n">evaluator</span> <span class="o">=</span> <span class="n">CountBits</span><span class="p">()</span>
-    <span class="n">selector</span> <span class="o">=</span> <span class="n">Elitist</span><span class="p">(</span><span class="n">SimpleSelector</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">](</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">variator</span> <span class="o">=</span> <span class="n">MutateBits</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">Elitist</span><span class="p">(</span><span class="n">TruncationSelector</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">](</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">variator</span> <span class="o">=</span> <span class="n">MutateBits</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 
-    <span class="n">ctrl</span><span class="p">:</span> <span class="n">SimpleLinearAlgorithm</span> <span class="o">=</span> <span class="n">SimpleLinearAlgorithm</span><span class="p">(</span>
+    <span class="n">ctrl</span><span class="p">:</span> <span class="n">SimpleLinearAlgorithm</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]</span> <span class="o">=</span> <span class="n">SimpleLinearAlgorithm</span><span class="p">(</span>
         <span class="n">population</span><span class="o">=</span><span class="n">init_pop</span><span class="p">,</span>
         <span class="n">variator</span><span class="o">=</span><span class="n">variator</span><span class="p">,</span>
         <span class="n">evaluator</span><span class="o">=</span><span class="n">evaluator</span><span class="p">,</span>
@@ -329,7 +332,7 @@
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GENERATION_COUNT</span><span class="p">):</span>
         <span class="n">ctrl</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-        <span class="n">dicts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">best</span><span class="p">()</span>  <span class="c1"># type: ignore[assignment]</span>
+        <span class="n">dicts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">best</span><span class="p">()</span>
         <span class="c1"># Because algorithms are not generic, the type of the population</span>
         <span class="c1">#   is not preserved.</span>
 

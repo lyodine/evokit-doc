@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Getting Started with OneMax" href="onemax.html" />
-    <link rel="prev" title="Symbolic Regression with Genetic Programming" href="gp.html" /> 
+    <link rel="prev" title="Please don’t look at me, I’m not done yet." href="lgp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,18 +52,20 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../why.html">Why EvoKit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install-and-built.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install-and-build.html">Installing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#base-classes">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#representations">Representations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-tutorials">Advanced Tutorials</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="accountant.html">Collect Runtime Statistics with <code class="docutils literal notranslate"><span class="pre">Accountant</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="algorithm.html">Creating a Custom <code class="docutils literal notranslate"><span class="pre">Controller</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html">Making a Custom Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gp.html">Symbolic Regression with Genetic Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lgp.html">Please don’t look at me, I’m not done yet.</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Modifying Operators with the Interceptor Pattern</a></li>
 <li class="toctree-l3"><a class="reference internal" href="onemax.html">Getting Started with OneMax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="onemax.html#Evaluator">Evaluator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selector.html">Creating a Custom <code class="docutils literal notranslate"><span class="pre">Selector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="selector.html">Making a Custom Selector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="selector.html#Selector">Selector</a></li>
 </ul>
 </li>
@@ -283,27 +285,27 @@ Initial value is 1
 Increased by 2
 </pre></div></div>
 </div>
-<p>This use case is common in the framework. For example, all selectors share methods named <code class="docutils literal notranslate"><span class="pre">.select</span></code> and <code class="docutils literal notranslate"><span class="pre">.select_to_many</span></code>. It would be good to be able to change the behaviour of an instance of a selector without modifying or extending its class.</p>
+<p>This use case is common in the framework. For example, all selectors share methods named <code class="docutils literal notranslate"><span class="pre">.select</span></code> and <code class="docutils literal notranslate"><span class="pre">.select_population</span></code>. It would be good to be able to change the behaviour of an instance of a selector without modifying or extending its class.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Selector</span><span class="p">,</span> <span class="n">Population</span><span class="p">,</span> <span class="n">Individual</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="n">D</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Individual</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">Elitist</span><span class="p">(</span><span class="n">sel</span><span class="p">:</span> <span class="n">Selector</span><span class="p">[</span><span class="n">D</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Selector</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">wrap_function</span><span class="p">(</span><span class="n">original_select_to_many</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">wrap_function</span><span class="p">(</span><span class="n">original_select_population</span><span class="p">:</span>
                       <span class="n">Callable</span><span class="p">[[</span><span class="n">Selector</span><span class="p">[</span><span class="n">D</span><span class="p">],</span> <span class="n">Population</span><span class="p">[</span><span class="n">D</span><span class="p">]],</span>
-                               <span class="n">Tuple</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="o">...</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+                               <span class="n">Population</span><span class="p">[</span><span class="n">D</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 
-        <span class="nd">@wraps</span><span class="p">(</span><span class="n">original_select_to_many</span><span class="p">)</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">original_select_population</span><span class="p">)</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Selector</span><span class="p">[</span><span class="n">D</span><span class="p">],</span>
                     <span class="n">population</span><span class="p">:</span> <span class="n">Population</span><span class="p">[</span><span class="n">D</span><span class="p">],</span>
-                    <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+                    <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Population</span><span class="p">[</span><span class="n">D</span><span class="p">]:</span>
 
             <span class="n">population_best</span><span class="p">:</span> <span class="n">D</span> <span class="o">=</span> <span class="n">population</span><span class="o">.</span><span class="n">best</span><span class="p">()</span>
             <span class="n">my_best</span><span class="p">:</span> <span class="n">D</span>
@@ -328,16 +330,16 @@ Increased by 2
             <span class="c1">#print(f&quot;, {str(hof_individual)}score is m{my_best.fitness} &gt; p{population_best.fitness}&quot;)</span>
 
             <span class="c1"># Acquire results of the original selector</span>
-            <span class="n">results</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">original_select_to_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">original_select_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
             <span class="c1"># Append the best individual to results</span>
-            <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">results</span><span class="p">,</span> <span class="n">hof_individual</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+            <span class="k">return</span> <span class="n">Population</span><span class="p">(</span><span class="o">*</span><span class="n">results</span><span class="p">,</span> <span class="n">hof_individual</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">wrapper</span>
 
-    <span class="nb">setattr</span><span class="p">(</span><span class="n">sel</span><span class="p">,</span> <span class="s1">&#39;select_to_many&#39;</span><span class="p">,</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">sel</span><span class="p">,</span> <span class="s1">&#39;select_population&#39;</span><span class="p">,</span>
             <span class="n">MethodType</span><span class="p">(</span>
-                <span class="n">wrap_function</span><span class="p">(</span><span class="n">sel</span><span class="o">.</span><span class="n">select_to_many</span><span class="o">.</span><span class="vm">__func__</span><span class="p">),</span>  <span class="c1"># type:ignore</span>
+                <span class="n">wrap_function</span><span class="p">(</span><span class="n">sel</span><span class="o">.</span><span class="n">select_population</span><span class="o">.</span><span class="vm">__func__</span><span class="p">),</span>  <span class="c1"># type:ignore</span>
                 <span class="n">sel</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">sel</span>
 </pre></div>
@@ -349,7 +351,7 @@ Increased by 2
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gp.html" class="btn btn-neutral float-left" title="Symbolic Regression with Genetic Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lgp.html" class="btn btn-neutral float-left" title="Please don’t look at me, I’m not done yet." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="onemax.html" class="btn btn-neutral float-right" title="Getting Started with OneMax" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

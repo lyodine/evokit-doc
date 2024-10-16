@@ -7,7 +7,7 @@
   <title>Making a Custom Selector &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
       <link rel="stylesheet" type="text/css" href="../../_static/styles.css?v=dd041f00" />
 
   
@@ -108,14 +108,14 @@
   <section id="Making-a-Custom-Selector">
 <h1>Making a Custom Selector<a class="headerlink" href="#Making-a-Custom-Selector" title="Link to this heading"></a></h1>
 <p>In an evolutionary algorithm, a selector selects from a set of individuals into a strict subset. Because the process uses the fitness of individuals, selection takes place after evaluation:</p>
-<center><p><img alt="ee6491214edd45359c8bbe710e34a6fc" src="../../_images/highlight-selector.svg" /></p>
+<center><p><img alt="90872a2b646f459c8d1ba5b191be5d50" src="../../_images/ec-selection-strategies.svg" /></p>
 </center><section id="Initialise-Population">
 <h2>Initialise Population<a class="headerlink" href="#Initialise-Population" title="Link to this heading"></a></h2>
 <p>Evokit represents the population with <code class="docutils literal notranslate"><span class="pre">core.Population</span></code>.</p>
 <p>To begin, initialise a <code class="docutils literal notranslate"><span class="pre">Population</span></code> of binary string representations.</p>
-<p>For now, manually assign to the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> of each individual. The <code class="docutils literal notranslate"><span class="pre">Evaluator</span></code> does this automatically. See the <a class="reference external" href="./onemax.html">OneMax tutorial</a> for an example.</p>
+<p>For now, manually assign to the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> of each individual. The <code class="docutils literal notranslate"><span class="pre">Evaluator</span></code> does this automatically. See the <a class="reference internal" href="onemax.html"><span class="doc">OneMax tutorial</span></a> for an example.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Population</span>
@@ -124,7 +124,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="p">:</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]</span> <span class="o">=</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]()</span>
@@ -149,7 +149,7 @@
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="mi">5</span>
@@ -163,7 +163,7 @@
 </div>
 <p>The fitness is the sum of all bits in a string. Check all fitness values are correctly assigned:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="n">pop</span><span class="p">:</span>
@@ -198,7 +198,7 @@ Fitness of [0, 0, 0, 0, 0] is 0
 <p>Define a truncation selector. Because the truncation selector selects the best <code class="docutils literal notranslate"><span class="pre">n</span></code> items in a population, just overriding <code class="docutils literal notranslate"><span class="pre">.select</span></code> (which selects with replacement) is not enough.</p>
 <p>Instead, override <code class="docutils literal notranslate"><span class="pre">.select_population</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">override</span><span class="p">,</span> <span class="n">Self</span>
@@ -219,7 +219,7 @@ Fitness of [0, 0, 0, 0, 0] is 0
 <p>Apply the selector to the population.</p>
 <p>With a budget of <code class="docutils literal notranslate"><span class="pre">1</span></code>, the selector returns an individual in the population with highest fitness. Within the previously defined population, that individual is always <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SELECTION_BUDGET</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>

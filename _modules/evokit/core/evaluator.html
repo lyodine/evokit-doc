@@ -6,7 +6,8 @@
   <title>evokit.core.evaluator &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=dd041f00" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=a191c2e8" />
 
   
   <!--[if lt IE 9]>
@@ -99,10 +100,12 @@
 <span class="n">D</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Individual</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">MetaEvaluator</span><span class="p">(</span><span class="n">ABCMeta</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Machinery. Implement special behaviours in :class:`Evaluator`.</span>
+<span class="k">class</span> <span class="nc">_MetaEvaluator</span><span class="p">(</span><span class="n">ABCMeta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Machinery.</span>
 
 <span class="sd">    :meta private:</span>
+
+<span class="sd">    Implement special behaviours in :class:`Evaluator`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># ^^ Actually a private metaclass! :meta private: indeed.</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">mcls</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bases</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">type</span><span class="p">],</span>
@@ -136,7 +139,7 @@
 
 <div class="viewcode-block" id="Evaluator">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.evaluator.Evaluator">[docs]</a>
-<span class="k">class</span> <span class="nc">Evaluator</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">D</span><span class="p">],</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MetaEvaluator</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Evaluator</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">D</span><span class="p">],</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">_MetaEvaluator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for all evaluators.</span>
 
 <span class="sd">    Derive this class to create custom evaluators.</span>
@@ -146,9 +149,11 @@
 <div class="viewcode-block" id="Evaluator.__new__">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.evaluator.Evaluator.__new__">[docs]</a>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Machinery. Implement managed attributes.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Machinery.</span>
 
 <span class="sd">        :meta private:</span>
+
+<span class="sd">        Implement managed attributes.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">retain_fitness</span> <span class="o">=</span> <span class="kc">False</span>

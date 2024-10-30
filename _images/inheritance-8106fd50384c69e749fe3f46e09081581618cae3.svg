@@ -1,0 +1,230 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="576pt" height="98pt" viewBox="0.00 0.00 576.00 98.03">
+<ns0:g id="graph0" class="graph" transform="scale(0.71166 0.71166) rotate(0) translate(4 133.75)">
+<ns0:title>inheritance156d23a927</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="402.12,-129.75 348.12,-129.75 348.12,-110.5 402.12,-110.5 402.12,-129.75" />
+<ns0:text text-anchor="middle" x="375.12" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Variator</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.core.html#evokit.core.variator.Variator" ns1:title="Base class for all selectors." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="285.25,-74.5 231,-74.5 231,-55.25 285.25,-55.25 285.25,-74.5" />
+<ns0:text text-anchor="middle" x="258.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Variator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge14" class="edge">
+<ns0:title>ABC-&gt;Variator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M355.28,-110.09C335.61,-101.14 305.4,-87.39 283.89,-77.6" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="284.03,-75.74 278.76,-75.27 282.58,-78.93 284.03,-75.74" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Evaluator</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="..\evokit.core.html#evokit.core.evaluator.Evaluator" ns1:title="Base class for all evaluators." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="405.62,-74.5 344.62,-74.5 344.62,-55.25 405.62,-55.25 405.62,-74.5" />
+<ns0:text text-anchor="middle" x="375.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Evaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>ABC-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M375.12,-110.33C375.12,-102.44 375.12,-90.68 375.12,-81.24" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="376.88,-80.62 375.13,-75.62 373.38,-80.62 376.88,-80.62" />
+</ns0:g>
+
+<ns0:g id="node8" class="node">
+<ns0:title>Individual</ns0:title>
+<ns0:g id="a_node8"><ns0:a ns1:href="..\evokit.core.html#evokit.core.population.Individual" ns1:title="Base class for all individuals." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="484.25,-74.5 424,-74.5 424,-55.25 484.25,-55.25 484.25,-74.5" />
+<ns0:text text-anchor="middle" x="454.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Individual</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge6" class="edge">
+<ns0:title>ABC-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M388.53,-110.09C401.46,-101.37 421.16,-88.09 435.6,-78.36" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="436.86,-79.62 440.03,-75.38 434.91,-76.72 436.86,-79.62" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>CrossoverSubtree</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.CrossoverSubtree" ns1:title="Crossover operator that randomly exchange subtrees of parents." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="102.25,-19.25 0,-19.25 0,0 102.25,0 102.25,-19.25" />
+<ns0:text text-anchor="middle" x="51.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">CrossoverSubtree</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Variator-&gt;CrossoverSubtree</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M230.64,-56.8C195.28,-47.71 133.55,-31.83 92.5,-21.27" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="92.36,-19.43 87.08,-19.88 91.49,-22.82 92.36,-19.43" />
+</ns0:g>
+
+<ns0:g id="node9" class="node">
+<ns0:title>MutateNode</ns0:title>
+<ns0:g id="a_node9"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.MutateNode" ns1:title="Mutator that changes the primitive in a uniformly random node to" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="195.75,-19.25 120.5,-19.25 120.5,0 195.75,0 195.75,-19.25" />
+<ns0:text text-anchor="middle" x="158.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MutateNode</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge8" class="edge">
+<ns0:title>Variator-&gt;MutateNode</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.16,-54.84C224.5,-45.97 198.97,-32.37 180.62,-22.6" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.08,-20.86 175.84,-20.06 179.43,-23.95 181.08,-20.86" />
+</ns0:g>
+
+<ns0:g id="node10" class="node">
+<ns0:title>MutateSubtree</ns0:title>
+<ns0:g id="a_node10"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.MutateSubtree" ns1:title="Mutation operator that randomly mutates subtrees." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="302.12,-19.25 214.12,-19.25 214.12,0 302.12,0 302.12,-19.25" />
+<ns0:text text-anchor="middle" x="258.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MutateSubtree</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge9" class="edge">
+<ns0:title>Variator-&gt;MutateSubtree</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M258.12,-55.08C258.12,-47.19 258.12,-35.43 258.12,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="259.88,-25.37 258.13,-20.37 256.38,-25.37 259.88,-25.37" />
+</ns0:g>
+
+<ns0:g id="node11" class="node">
+<ns0:title>PenaliseNodeCount</ns0:title>
+<ns0:g id="a_node11"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.PenaliseNodeCount" ns1:title="Evaluator that favours smaller program trees." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="430,-19.25 320.25,-19.25 320.25,0 430,0 430,-19.25" />
+<ns0:text text-anchor="middle" x="375.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">PenaliseNodeCount</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge10" class="edge">
+<ns0:title>Evaluator-&gt;PenaliseNodeCount</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M375.12,-55.08C375.12,-47.19 375.12,-35.43 375.12,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="376.88,-25.37 375.13,-20.37 373.38,-25.37 376.88,-25.37" />
+</ns0:g>
+
+<ns0:g id="node15" class="node">
+<ns0:title>SymbolicEvaluator</ns0:title>
+<ns0:g id="a_node15"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.SymbolicEvaluator" ns1:title="Evaluator for symbolic regression." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="552.38,-19.25 447.88,-19.25 447.88,0 552.38,0 552.38,-19.25" />
+<ns0:text text-anchor="middle" x="500.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">SymbolicEvaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge13" class="edge">
+<ns0:title>Evaluator-&gt;SymbolicEvaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M396.33,-54.84C417.43,-45.85 449.9,-32.02 472.89,-22.23" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="474.21,-23.57 478.12,-20 472.83,-20.35 474.21,-23.57" />
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="522.12,-129.75 468.12,-129.75 468.12,-110.5 522.12,-110.5 522.12,-129.75" />
+<ns0:text text-anchor="middle" x="495.12" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge15" class="edge">
+<ns0:title>Generic-&gt;Variator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M467.94,-113.02C424.42,-103.24 339.21,-84.09 291.87,-73.46" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="291.73,-71.63 286.46,-72.24 290.96,-75.05 291.73,-71.63" />
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Generic-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M474.77,-110.09C454.51,-101.1 423.34,-87.27 401.27,-77.48" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="401.55,-75.69 396.27,-75.26 400.13,-78.89 401.55,-75.69" />
+</ns0:g>
+
+<ns0:g id="node6" class="node">
+<ns0:title>Expression</ns0:title>
+<ns0:g id="a_node6"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.Expression" ns1:title="A node in an expression tree." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="570,-74.5 502.25,-74.5 502.25,-55.25 570,-55.25 570,-74.5" />
+<ns0:text text-anchor="middle" x="536.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Expression</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>Generic-&gt;Expression</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M501.9,-110.33C508.27,-102.06 517.91,-89.53 525.34,-79.88" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="527.08,-80.49 528.75,-75.46 524.31,-78.35 527.08,-80.49" />
+</ns0:g>
+
+<ns0:g id="node7" class="node">
+<ns0:title>ExpressionFactory</ns0:title>
+<ns0:g id="a_node7"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.ExpressionFactory" ns1:title="Factory class for :class:`Expression`." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="690.62,-74.5 587.62,-74.5 587.62,-55.25 690.62,-55.25 690.62,-74.5" />
+<ns0:text text-anchor="middle" x="639.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ExpressionFactory</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge5" class="edge">
+<ns0:title>Generic-&gt;ExpressionFactory</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M519.55,-110.09C544.17,-100.99 582.22,-86.92 608.76,-77.1" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="609.79,-78.59 613.87,-75.21 608.57,-75.31 609.79,-78.59" />
+</ns0:g>
+
+<ns0:g id="edge7" class="edge">
+<ns0:title>Generic-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M488.35,-110.33C481.98,-102.06 472.34,-89.53 464.91,-79.88" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="465.94,-78.35 461.5,-75.46 463.17,-80.49 465.94,-78.35" />
+</ns0:g>
+
+<ns0:g id="node13" class="node">
+<ns0:title>ProgramFactory</ns0:title>
+<ns0:g id="a_node13"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.ProgramFactory" ns1:title="Convenience factory class for :class:`Program`." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="801.38,-74.5 708.88,-74.5 708.88,-55.25 801.38,-55.25 801.38,-74.5" />
+<ns0:text text-anchor="middle" x="755.12" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ProgramFactory</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge12" class="edge">
+<ns0:title>Generic-&gt;ProgramFactory</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M522.62,-112.42C525.49,-111.76 528.36,-111.11 531.12,-110.5 589.57,-97.68 656.95,-84.47 702.42,-75.78" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="703.36,-77.38 707.94,-74.73 702.7,-73.95 703.36,-77.38" />
+</ns0:g>
+
+<ns0:g id="node12" class="node">
+<ns0:title>Program</ns0:title>
+<ns0:g id="a_node12"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.Program" ns1:title="A tree-based genetic program." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="627.75,-19.25 570.5,-19.25 570.5,0 627.75,0 627.75,-19.25" />
+<ns0:text text-anchor="middle" x="599.12" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Program</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge11" class="edge">
+<ns0:title>Individual-&gt;Program</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M478.72,-54.84C503.51,-45.74 541.82,-31.67 568.55,-21.85" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="569.61,-23.33 573.7,-19.96 568.4,-20.04 569.61,-23.33" />
+</ns0:g>
+
+<ns0:g id="node14" class="node">
+<ns0:title>Symbol</ns0:title>
+<ns0:g id="a_node14"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.gp.Symbol" ns1:title="Dummy object used by :class:`.ExpressionFactory`." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="594.12,-129.75 540.12,-129.75 540.12,-110.5 594.12,-110.5 594.12,-129.75" />
+<ns0:text text-anchor="middle" x="567.12" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Symbol</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+</ns0:g>
+</ns0:svg>

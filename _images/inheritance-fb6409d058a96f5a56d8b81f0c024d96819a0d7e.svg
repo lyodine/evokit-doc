@@ -1,0 +1,68 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="225pt" height="83pt" viewBox="0.00 0.00 224.50 82.50">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 78.5)">
+<ns0:title>inheritance4ddeea93b2</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="54,-74.5 0,-74.5 0,-55.25 54,-55.25 54,-74.5" />
+<ns0:text text-anchor="middle" x="27" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Evaluator</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.core.html#evokit.core.evaluator.Evaluator" ns1:title="Base class for all evaluators." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="85.5,-19.25 24.5,-19.25 24.5,0 85.5,0 85.5,-19.25" />
+<ns0:text text-anchor="middle" x="55" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Evaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ABC-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M31.62,-55.08C35.89,-46.96 42.32,-34.74 47.35,-25.17" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="49.15,-25.52 49.92,-20.28 46.05,-23.89 49.15,-25.52" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ABCMeta</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Metaclass for defining Abstract Base Classes (ABCs).">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="204.12,-74.5 143.88,-74.5 143.88,-55.25 204.12,-55.25 204.12,-74.5" />
+<ns0:text text-anchor="middle" x="174" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABCMeta</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>MetaEvaluator</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:title="Machinery.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="216.5,-19.25 131.5,-19.25 131.5,0 216.5,0 216.5,-19.25" />
+<ns0:text text-anchor="middle" x="174" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MetaEvaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ABCMeta-&gt;MetaEvaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M174,-55.08C174,-47.19 174,-35.43 174,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="175.75,-25.37 174,-20.37 172.25,-25.37 175.75,-25.37" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="126,-74.5 72,-74.5 72,-55.25 126,-55.25 126,-74.5" />
+<ns0:text text-anchor="middle" x="99" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Generic-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M91.73,-55.08C84.9,-46.81 74.55,-34.28 66.57,-24.63" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="67.44,-22.93 62.91,-20.19 64.74,-25.16 67.44,-22.93" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

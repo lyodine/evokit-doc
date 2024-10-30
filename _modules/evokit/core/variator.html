@@ -6,7 +6,8 @@
   <title>evokit.core.variator &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=dd041f00" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=a191c2e8" />
 
   
   <!--[if lt IE 9]>
@@ -103,24 +104,33 @@
 <div class="viewcode-block" id="Variator">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.variator.Variator">[docs]</a>
 <span class="k">class</span> <span class="nc">Variator</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">D</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for all selectors.</span>
+
+<span class="sd">    Derive this class to create custom selectors.</span>
+
+<span class="sd">    Tutorial: :doc:`../guides/examples/onemax`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="Variator.__new__">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.variator.Variator.__new__">[docs]</a>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Self</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Machinery. Implement managed attributes.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Machinery.</span>
 
 <span class="sd">        :meta private:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">instance</span><span class="p">:</span> <span class="n">Self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+
+        <span class="c1">#: Size of input to :meth:`vary`</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">arity</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">instance</span><span class="o">.</span><span class="n">coarity</span> <span class="o">=</span> <span class="kc">None</span>
+
         <span class="k">return</span> <span class="n">instance</span></div>
 
 
 <div class="viewcode-block" id="Variator.__init__">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.variator.Variator.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">arity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coarity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span></div>
+        <span class="c1">#: Size of input to :meth:`vary`</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="Variator.vary">
@@ -129,9 +139,9 @@
     <span class="k">def</span> <span class="nf">vary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parents</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">D</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply the variator to a tuple of parents</span>
 
-<span class="sd">        Produce a tuple of individuals from a tuple of individuals.</span>
-<span class="sd">        The input and output tuple sizes should match the arity and coarity of</span>
-<span class="sd">        this selector, respectively.</span>
+<span class="sd">        Produce a tuple of individuals from a sequence of individuals.</span>
+
+<span class="sd">        The length :arg:`.parents` is at most :attr:`.arity`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -140,6 +150,8 @@
                           <span class="n">population</span><span class="p">:</span> <span class="n">Population</span><span class="p">[</span><span class="n">D</span><span class="p">])</span>\
             <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">D</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Machinery.</span>
+
+<span class="sd">        :meta private:</span>
 
 <span class="sd">        Divide the population into sequences of the given size.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -189,8 +201,7 @@
 <div class="viewcode-block" id="NullVariator.__init__">
 <a class="viewcode-back" href="../../../evokit.core.html#evokit.core.variator.NullVariator.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">arity</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coarity</span> <span class="o">=</span> <span class="mi">1</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arity</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 
 <div class="viewcode-block" id="NullVariator.vary">

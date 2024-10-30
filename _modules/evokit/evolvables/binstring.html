@@ -6,7 +6,8 @@
   <title>evokit.evolvables.binstring &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=dd041f00" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=a191c2e8" />
 
   
   <!--[if lt IE 9]>
@@ -99,9 +100,11 @@
 
 <span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">ValueRange</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Typing machinery. Represents a range of numbers.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Typing machinery.</span>
 
 <span class="sd">    :meta private:</span>
+
+<span class="sd">    Represents a range of numbers.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">lo</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">hi</span><span class="p">:</span> <span class="nb">int</span>
@@ -287,7 +290,6 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mutation rate must be between 0 and 1.&quot;</span>
                              <span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">mutation_rate</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arity</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coarity</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mutation_rate</span> <span class="o">=</span> <span class="n">mutation_rate</span></div>
 
 

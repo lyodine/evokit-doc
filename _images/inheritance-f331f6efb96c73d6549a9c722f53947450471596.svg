@@ -1,0 +1,44 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="134pt" height="83pt" viewBox="0.00 0.00 134.00 82.50">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 78.5)">
+<ns0:title>inheritance4ddeea93b2</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="54,-74.5 0,-74.5 0,-55.25 54,-55.25 54,-74.5" />
+<ns0:text text-anchor="middle" x="27" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Evaluator</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="..\evokit.core.html#evokit.core.evaluator.Evaluator" ns1:title="Base class for all evaluators." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="93.5,-19.25 32.5,-19.25 32.5,0 93.5,0 93.5,-19.25" />
+<ns0:text text-anchor="middle" x="63" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Evaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ABC-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M32.94,-55.08C38.49,-46.88 46.85,-34.51 53.35,-24.9" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="55.15,-25.36 56.5,-20.24 52.25,-23.4 55.15,-25.36" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="126,-74.5 72,-74.5 72,-55.25 126,-55.25 126,-74.5" />
+<ns0:text text-anchor="middle" x="99" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Generic-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M93.06,-55.08C87.51,-46.88 79.15,-34.51 72.65,-24.9" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="73.75,-23.4 69.5,-20.24 70.85,-25.36 73.75,-23.4" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

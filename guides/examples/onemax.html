@@ -7,8 +7,9 @@
   <title>Getting Started with OneMax &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
-      <link rel="stylesheet" type="text/css" href="../../_static/styles.css?v=dd041f00" />
+      <link rel="stylesheet" type="text/css" href="../../_static/styles.css?v=a191c2e8" />
 
   
   <!--[if lt IE 9]>
@@ -192,9 +193,8 @@
 <ol class="arabic simple">
 <li><p>Initialise attribute <code class="docutils literal notranslate"><span class="pre">.arity</span></code> to specify how many parents are passed to <code class="docutils literal notranslate"><span class="pre">.vary</span></code>.</p></li>
 <li><p>Override method <code class="docutils literal notranslate"><span class="pre">.vary</span></code> to specify how to create new individuals from existing ones. Be sure to call <code class="docutils literal notranslate"><span class="pre">.copy</span></code> before making changes to an existing individual.</p></li>
-<li><p>Optionally, initialise attribute <code class="docutils literal notranslate"><span class="pre">.coarity</span></code> to report how many individuals are returned by <code class="docutils literal notranslate"><span class="pre">.vary</span></code>. This attribute is informational: no part of the core framework uses it. Leave it as <code class="docutils literal notranslate"><span class="pre">None</span></code> if the variator can return a variable number of individuals.</p></li>
 </ol>
-<p>In this example, <code class="docutils literal notranslate"><span class="pre">.vary</span></code> receives an 1-tuple because <code class="docutils literal notranslate"><span class="pre">.arity=2</span></code>. It returns a 2-tuple including the original individual and its offspring, which is reflected by <code class="docutils literal notranslate"><span class="pre">.coarity=2</span></code>.</p>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">.vary</span></code> receives an 1-tuple because <code class="docutils literal notranslate"><span class="pre">.arity=2</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -208,7 +208,6 @@
     <span class="nd">@override</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mutation_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arity</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coarity</span> <span class="o">=</span> <span class="mi">1</span>
 
         <span class="c1"># Not required. Raise an error if the mutation rate is too big or small.</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">mutation_rate</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">mutation_rate</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>

@@ -1,0 +1,191 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="404pt" height="248pt" viewBox="0.00 0.00 404.00 248.25">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 244.25)">
+<ns0:title>inheritancef15ba2d4de</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="324,-129.75 270,-129.75 270,-110.5 324,-110.5 324,-129.75" />
+<ns0:text text-anchor="middle" x="297" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>AbstractCollection</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:title="Machinery.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="306.5,-74.5 203.5,-74.5 203.5,-55.25 306.5,-55.25 306.5,-74.5" />
+<ns0:text text-anchor="middle" x="255" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">AbstractCollection</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ABC-&gt;AbstractCollection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M290.06,-110.33C283.54,-102.06 273.66,-89.53 266.05,-79.88" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="267.03,-78.3 262.55,-75.45 264.28,-80.46 267.03,-78.3" />
+</ns0:g>
+
+<ns0:g id="node10" class="node">
+<ns0:title>Individual</ns0:title>
+<ns0:g id="a_node10"><ns0:a ns1:href="..\evokit.core.html#evokit.core.population.Individual" ns1:title="Base class for all individuals." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="392.12,-74.5 331.88,-74.5 331.88,-55.25 392.12,-55.25 392.12,-74.5" />
+<ns0:text text-anchor="middle" x="362" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Individual</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge8" class="edge">
+<ns0:title>ABC-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M308.03,-110.09C318.55,-101.47 334.51,-88.4 346.34,-78.7" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="347.79,-79.78 350.55,-75.25 345.57,-77.07 347.79,-79.78" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ABCMeta</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Metaclass for defining Abstract Base Classes (ABCs).">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="341.12,-240.25 280.88,-240.25 280.88,-221 341.12,-221 341.12,-240.25" />
+<ns0:text text-anchor="middle" x="311" y="-226.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABCMeta</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node11" class="node">
+<ns0:title>MetaGenome</ns0:title>
+<ns0:g id="a_node11"><ns0:a ns1:title="Machinery.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="351.62,-185 270.38,-185 270.38,-165.75 351.62,-165.75 351.62,-185" />
+<ns0:text text-anchor="middle" x="311" y="-171.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MetaGenome</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge10" class="edge">
+<ns0:title>ABCMeta-&gt;MetaGenome</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M311,-220.83C311,-212.94 311,-201.18 311,-191.74" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="312.75,-191.12 311,-186.12 309.25,-191.12 312.75,-191.12" />
+</ns0:g>
+
+<ns0:g id="node12" class="node">
+<ns0:title>Population</ns0:title>
+<ns0:g id="a_node12"><ns0:a ns1:href="..\evokit.core.html#evokit.core.population.Population" ns1:title="A flat collection of individuals." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="288.12,-19.25 221.88,-19.25 221.88,0 288.12,0 288.12,-19.25" />
+<ns0:text text-anchor="middle" x="255" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Population</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge11" class="edge">
+<ns0:title>AbstractCollection-&gt;Population</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M255,-55.08C255,-47.19 255,-35.43 255,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="256.75,-25.37 255,-20.37 253.25,-25.37 256.75,-25.37" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Sequence</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:title="All the operations on a read-only sequence.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="214,-129.75 150,-129.75 150,-110.5 214,-110.5 214,-129.75" />
+<ns0:text text-anchor="middle" x="182" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Sequence</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Sequence-&gt;AbstractCollection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M194.38,-110.09C206.31,-101.39 224.44,-88.17 237.77,-78.44" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="239.18,-79.58 242.19,-75.22 237.12,-76.75 239.18,-79.58" />
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>Iterable</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="209,-240.25 155,-240.25 155,-221 209,-221 209,-240.25" />
+<ns0:text text-anchor="middle" x="182" y="-226.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Iterable</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Iterable-&gt;AbstractCollection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M192.62,-220.78C201.94,-212.46 215.19,-199.2 223,-185 241.88,-150.67 250.12,-104.57 253.28,-81.06" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="255.09,-80.72 253.98,-75.54 251.62,-80.28 255.09,-80.72" />
+</ns0:g>
+
+<ns0:g id="node7" class="node">
+<ns0:title>Collection</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="131.25,-185 68.75,-185 68.75,-165.75 131.25,-165.75 131.25,-185" />
+<ns0:text text-anchor="middle" x="100" y="-171.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Collection</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge6" class="edge">
+<ns0:title>Iterable-&gt;Collection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M168.09,-220.59C154.66,-211.87 134.21,-198.59 119.23,-188.86" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="119.76,-187.12 114.61,-185.86 117.85,-190.06 119.76,-187.12" />
+</ns0:g>
+
+<ns0:g id="node13" class="node">
+<ns0:title>Reversible</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="214.38,-185 149.62,-185 149.62,-165.75 214.38,-165.75 214.38,-185" />
+<ns0:text text-anchor="middle" x="182" y="-171.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Reversible</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge12" class="edge">
+<ns0:title>Iterable-&gt;Reversible</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M182,-220.83C182,-212.94 182,-201.18 182,-191.74" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="183.75,-191.12 182,-186.12 180.25,-191.12 183.75,-191.12" />
+</ns0:g>
+
+<ns0:g id="node6" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node6"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="396,-129.75 342,-129.75 342,-110.5 396,-110.5 396,-129.75" />
+<ns0:text text-anchor="middle" x="369" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>Generic-&gt;AbstractCollection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M349.66,-110.09C330.5,-101.14 301.06,-87.39 280.1,-77.6" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="280.39,-75.8 275.12,-75.27 278.91,-78.97 280.39,-75.8" />
+</ns0:g>
+
+<ns0:g id="edge9" class="edge">
+<ns0:title>Generic-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M367.84,-110.33C366.81,-102.44 365.26,-90.68 364.02,-81.24" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="365.67,-80.34 363.28,-75.61 362.2,-80.79 365.67,-80.34" />
+</ns0:g>
+
+<ns0:g id="edge14" class="edge">
+<ns0:title>Collection-&gt;Sequence</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M113.91,-165.34C127.34,-156.62 147.79,-143.34 162.77,-133.61" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="164.15,-134.81 167.39,-130.61 162.24,-131.87 164.15,-134.81" />
+</ns0:g>
+
+<ns0:g id="node8" class="node">
+<ns0:title>Sized</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="54,-240.25 0,-240.25 0,-221 54,-221 54,-240.25" />
+<ns0:text text-anchor="middle" x="27" y="-226.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Sized</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge5" class="edge">
+<ns0:title>Sized-&gt;Collection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M39.38,-220.59C51.31,-211.89 69.44,-198.67 82.77,-188.94" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="84.18,-190.08 87.19,-185.72 82.12,-187.25 84.18,-190.08" />
+</ns0:g>
+
+<ns0:g id="node9" class="node">
+<ns0:title>Container</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="134.25,-240.25 71.75,-240.25 71.75,-221 134.25,-221 134.25,-240.25" />
+<ns0:text text-anchor="middle" x="103" y="-226.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Container</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge7" class="edge">
+<ns0:title>Container-&gt;Collection</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M102.5,-220.83C102.06,-212.94 101.4,-201.18 100.87,-191.74" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="102.58,-191.01 100.55,-186.11 99.08,-191.21 102.58,-191.01" />
+</ns0:g>
+
+<ns0:g id="edge13" class="edge">
+<ns0:title>Reversible-&gt;Sequence</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M182,-165.58C182,-157.69 182,-145.93 182,-136.49" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="183.75,-135.87 182,-130.87 180.25,-135.87 183.75,-135.87" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

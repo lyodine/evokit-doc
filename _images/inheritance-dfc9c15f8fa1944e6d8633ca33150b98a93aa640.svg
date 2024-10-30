@@ -1,0 +1,44 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="200pt" height="83pt" viewBox="0.00 0.00 200.25 82.50">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 78.5)">
+<ns0:title>inheritanceec8f47d6ba</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>Accountant</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:href="..\evokit.core.html#evokit.core.accountant.Accountant" ns1:title="Monitor and collect data from a running :class:`Algorithm`." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="70.75,-19.25 0,-19.25 0,0 70.75,0 70.75,-19.25" />
+<ns0:text text-anchor="middle" x="35.38" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Accountant</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="114.38,-74.5 60.38,-74.5 60.38,-55.25 114.38,-55.25 114.38,-74.5" />
+<ns0:text text-anchor="middle" x="87.38" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Generic-&gt;Accountant</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M78.79,-55.08C70.56,-46.65 58.02,-33.81 48.53,-24.1" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="49.42,-22.51 44.68,-20.15 46.92,-24.95 49.42,-22.51" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>AccountantRecord</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.core.html#evokit.core.accountant.AccountantRecord" ns1:title="A value collected by an :class:`Accountant`; also contains the context" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="192.25,-19.25 88.5,-19.25 88.5,0 192.25,0 192.25,-19.25" />
+<ns0:text text-anchor="middle" x="140.38" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">AccountantRecord</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Generic-&gt;AccountantRecord</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M96.13,-55.08C104.52,-46.65 117.3,-33.81 126.97,-24.1" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="128.61,-24.92 130.9,-20.15 126.13,-22.45 128.61,-24.92" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

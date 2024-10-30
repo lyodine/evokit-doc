@@ -1,0 +1,68 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="234pt" height="83pt" viewBox="0.00 0.00 234.25 82.50">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 78.5)">
+<ns0:title>inheritance0d3d258d48</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="54,-74.5 0,-74.5 0,-55.25 54,-55.25 54,-74.5" />
+<ns0:text text-anchor="middle" x="27" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Algorithm</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.core.html#evokit.core.algorithm.Algorithm" ns1:title="Base class for all evolutionary algorithms." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="90.25,-19.25 27.75,-19.25 27.75,0 90.25,0 90.25,-19.25" />
+<ns0:text text-anchor="middle" x="59" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Algorithm</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ABC-&gt;Algorithm</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M32.28,-55.08C37.16,-46.96 44.51,-34.74 50.26,-25.17" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="52.14,-25.44 53.21,-20.26 49.14,-23.64 52.14,-25.44" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ABCMeta</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Metaclass for defining Abstract Base Classes (ABCs).">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="213.12,-74.5 152.88,-74.5 152.88,-55.25 213.12,-55.25 213.12,-74.5" />
+<ns0:text text-anchor="middle" x="183" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABCMeta</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>MetaAlgorithm</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:title="Machinery.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="226.25,-19.25 139.75,-19.25 139.75,0 226.25,0 226.25,-19.25" />
+<ns0:text text-anchor="middle" x="183" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MetaAlgorithm</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ABCMeta-&gt;MetaAlgorithm</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M183,-55.08C183,-47.19 183,-35.43 183,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="184.75,-25.37 183,-20.37 181.25,-25.37 184.75,-25.37" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="126,-74.5 72,-74.5 72,-55.25 126,-55.25 126,-74.5" />
+<ns0:text text-anchor="middle" x="99" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Generic-&gt;Algorithm</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M92.39,-55.08C86.18,-46.81 76.77,-34.28 69.52,-24.63" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="70.61,-23.16 66.2,-20.21 67.81,-25.26 70.61,-23.16" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

@@ -6,7 +6,8 @@
   <title>evokit.core.selector &mdash; evokit  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=dd041f00" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/styles.css?v=a191c2e8" />
 
   
   <!--[if lt IE 9]>
@@ -115,8 +116,9 @@
 
 <span class="sd">        Note:</span>
 <span class="sd">            Implementations that select a variable number of</span>
-<span class="sd">            individuals may ignore :attr:`budget`.</span>
+<span class="sd">            individuals may ignore :attr:`.budget`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#: Declared size of the output population</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">budget</span> <span class="o">=</span> <span class="n">budget</span></div>
 
 
@@ -136,9 +138,10 @@
 <span class="sd">        Args:</span>
 <span class="sd">            from_population: population to select from.</span>
 
-<span class="sd">        Warn:</span>
-<span class="sd">            The default implementation calls :meth:`select` as long as</span>
-<span class="sd">            the number of selected individuals is less than :attr:`budget`.</span>
+<span class="sd">        Warning:</span>
+<span class="sd">            The default implementation calls :meth:`.select` as long as</span>
+<span class="sd">            the number of selected individuals is less than :attr:`.budget`.</span>
+
 <span class="sd">            As such, if :meth:`.select` can return multiple individuals, then</span>
 <span class="sd">            the last call may return more individuals than what the budget</span>
 <span class="sd">            permits.</span>

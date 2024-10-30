@@ -1,0 +1,140 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="287pt" height="138pt" viewBox="0.00 0.00 286.75 137.75">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.75)">
+<ns0:title>inheritance11cf611c23</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="115.25,-129.75 61.25,-129.75 61.25,-110.5 115.25,-110.5 115.25,-129.75" />
+<ns0:text text-anchor="middle" x="88.25" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Individual</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.core.html#evokit.core.population.Individual" ns1:title="Base class for all individuals." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="75.38,-74.5 15.12,-74.5 15.12,-55.25 75.38,-55.25 75.38,-74.5" />
+<ns0:text text-anchor="middle" x="45.25" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Individual</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge5" class="edge">
+<ns0:title>ABC-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M81.15,-110.33C74.47,-102.06 64.35,-89.53 56.56,-79.88" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="57.48,-78.24 52.98,-75.45 54.76,-80.44 57.48,-78.24" />
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>Evaluator</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:href="..\evokit.core.html#evokit.core.evaluator.Evaluator" ns1:title="Base class for all evaluators." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="154.75,-74.5 93.75,-74.5 93.75,-55.25 154.75,-55.25 154.75,-74.5" />
+<ns0:text text-anchor="middle" x="124.25" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Evaluator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ABC-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M94.19,-110.33C99.74,-102.13 108.1,-89.76 114.6,-80.15" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="116.4,-80.61 117.75,-75.49 113.5,-78.65 116.4,-80.61" />
+</ns0:g>
+
+<ns0:g id="node8" class="node">
+<ns0:title>Variator</ns0:title>
+<ns0:g id="a_node8"><ns0:a ns1:href="..\evokit.core.html#evokit.core.variator.Variator" ns1:title="Base class for all selectors." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="227.38,-74.5 173.12,-74.5 173.12,-55.25 227.38,-55.25 227.38,-74.5" />
+<ns0:text text-anchor="middle" x="200.25" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Variator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge8" class="edge">
+<ns0:title>ABC-&gt;Variator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M107.25,-110.09C125.99,-101.18 154.75,-87.51 175.32,-77.73" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="176.71,-79 180.47,-75.28 175.21,-75.84 176.71,-79" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>BinaryString</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.binstring.BinaryString" ns1:title="A string of bits." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="74.5,-19.25 0,-19.25 0,0 74.5,0 74.5,-19.25" />
+<ns0:text text-anchor="middle" x="37.25" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">BinaryString</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Individual-&gt;BinaryString</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M43.93,-55.08C42.74,-47.19 40.98,-35.43 39.56,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="41.19,-25.04 38.71,-20.36 37.72,-25.56 41.19,-25.04" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>CountBits</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.binstring.CountBits" ns1:title="Count the number of ``1`` s." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="155.5,-19.25 93,-19.25 93,0 155.5,0 155.5,-19.25" />
+<ns0:text text-anchor="middle" x="124.25" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">CountBits</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Evaluator-&gt;CountBits</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M124.25,-55.08C124.25,-47.19 124.25,-35.43 124.25,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="126,-25.37 124.25,-20.37 122.5,-25.37 126,-25.37" />
+</ns0:g>
+
+<ns0:g id="node6" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node6"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="187.25,-129.75 133.25,-129.75 133.25,-110.5 187.25,-110.5 187.25,-129.75" />
+<ns0:text text-anchor="middle" x="160.25" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge6" class="edge">
+<ns0:title>Generic-&gt;Individual</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M140.74,-110.09C121.41,-101.14 91.71,-87.39 70.57,-77.6" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="70.81,-75.78 65.54,-75.27 69.34,-78.96 70.81,-75.78" />
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>Generic-&gt;Evaluator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M154.31,-110.33C148.76,-102.13 140.4,-89.76 133.9,-80.15" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="135,-78.65 130.75,-75.49 132.1,-80.61 135,-78.65" />
+</ns0:g>
+
+<ns0:g id="edge9" class="edge">
+<ns0:title>Generic-&gt;Variator</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M166.86,-110.33C173.07,-102.06 182.48,-89.53 189.73,-79.88" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="191.44,-80.51 193.05,-75.46 188.64,-78.41 191.44,-80.51" />
+</ns0:g>
+
+<ns0:g id="node7" class="node">
+<ns0:title>MutateBits</ns0:title>
+<ns0:g id="a_node7"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.binstring.MutateBits" ns1:title="Randomly flip each bit in the parent." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241.12,-19.25 173.38,-19.25 173.38,0 241.12,0 241.12,-19.25" />
+<ns0:text text-anchor="middle" x="207.25" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MutateBits</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge7" class="edge">
+<ns0:title>Variator-&gt;MutateBits</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M201.41,-55.08C202.44,-47.19 203.99,-35.43 205.23,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="207.05,-25.54 205.97,-20.36 203.58,-25.09 207.05,-25.54" />
+</ns0:g>
+
+<ns0:g id="node9" class="node">
+<ns0:title>ValueRange</ns0:title>
+<ns0:g id="a_node9"><ns0:a ns1:title="Typing machinery.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="278.75,-129.75 205.75,-129.75 205.75,-110.5 278.75,-110.5 278.75,-129.75" />
+<ns0:text text-anchor="middle" x="242.25" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ValueRange</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+</ns0:g>
+</ns0:svg>

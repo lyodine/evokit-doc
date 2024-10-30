@@ -1,0 +1,89 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="338pt" height="138pt" viewBox="0.00 0.00 337.88 137.75">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.75)">
+<ns0:title>inheritance160aad3d27</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ABC</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Helper class that provides a standard way to create an ABC using">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="139.88,-129.75 85.88,-129.75 85.88,-110.5 139.88,-110.5 139.88,-129.75" />
+<ns0:text text-anchor="middle" x="112.88" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ABC</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Selector</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="..\evokit.core.html#evokit.core.selector.Selector" ns1:title="Base class for all selectors." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="176.75,-74.5 121,-74.5 121,-55.25 176.75,-55.25 176.75,-74.5" />
+<ns0:text text-anchor="middle" x="148.88" y="-61" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Selector</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>ABC-&gt;Selector</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M118.82,-110.33C124.36,-102.13 132.73,-89.76 139.23,-80.15" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="141.03,-80.61 142.38,-75.49 138.13,-78.65 141.03,-80.61" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Generic</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Abstract base class for generic types.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="211.88,-129.75 157.88,-129.75 157.88,-110.5 211.88,-110.5 211.88,-129.75" />
+<ns0:text text-anchor="middle" x="184.88" y="-116.25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Generic</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Generic-&gt;Selector</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M178.93,-110.33C173.39,-102.13 165.02,-89.76 158.52,-80.15" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="159.62,-78.65 155.37,-75.49 156.72,-80.61 159.62,-78.65" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>NullSelector</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.selectors.NullSelector" ns1:title="Selector that does nothing." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="73.75,-19.25 0,-19.25 0,0 73.75,0 73.75,-19.25" />
+<ns0:text text-anchor="middle" x="36.88" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">NullSelector</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Selector-&gt;NullSelector</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M129.88,-54.84C111.13,-45.93 82.37,-32.26 61.8,-22.48" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="61.92,-20.59 56.65,-20.03 60.42,-23.75 61.92,-20.59" />
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>TournamentSelector</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.selectors.TournamentSelector" ns1:title="Tournament selector:" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="206,-19.25 91.75,-19.25 91.75,0 206,0 206,-19.25" />
+<ns0:text text-anchor="middle" x="148.88" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">TournamentSelector</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>Selector-&gt;TournamentSelector</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M148.88,-55.08C148.88,-47.19 148.88,-35.43 148.88,-25.99" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="150.63,-25.37 148.88,-20.37 147.13,-25.37 150.63,-25.37" />
+</ns0:g>
+
+<ns0:g id="node6" class="node">
+<ns0:title>TruncationSelector</ns0:title>
+<ns0:g id="a_node6"><ns0:a ns1:href="..\evokit.evolvables.html#evokit.evolvables.selectors.TruncationSelector" ns1:title="Simple selector that select individuals with highest fitness." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="329.88,-19.25 223.88,-19.25 223.88,0 329.88,0 329.88,-19.25" />
+<ns0:text text-anchor="middle" x="276.88" y="-5.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">TruncationSelector</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge5" class="edge">
+<ns0:title>Selector-&gt;TruncationSelector</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M170.59,-54.84C192.29,-45.81 225.72,-31.9 249.29,-22.1" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="250.41,-23.53 254.36,-19.99 249.07,-20.3 250.41,-23.53" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

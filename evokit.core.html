@@ -226,8 +226,9 @@ returns a list of all collected records.</p>
 <dt class="sig sig-object py" id="evokit.core.algorithm.Algorithm.__init__">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/algorithm.html#Algorithm.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.algorithm.Algorithm.__init__" title="Link to this definition"></a></dt>
 <dd><p>Subclasses should override this method.</p>
-<p>The initialiser should create (or accept as argument) operators used
-in the algorithm.</p>
+<p>Initialise the state of an algorithm, including operators,
+the initial population(s), truncation strategy, and other
+parameters associated with the learning process as a whole.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -236,19 +237,10 @@ in the algorithm.</p>
 <dd><p>Advance the population by one generation.</p>
 <p>Subclasses should override this method. Use operators to update
 the population (or populations). Call <a class="reference internal" href="#evokit.core.algorithm.Algorithm.update" title="evokit.core.algorithm.Algorithm.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> to fire events.</p>
-<p>Example:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;POST_VARIATION&quot;</span><span class="p">)</span>
-
-<span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;POST_EVALUATION&quot;</span><span class="p">)</span>
-
-<span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> \
-    <span class="bp">self</span><span class="o">.</span><span class="n">selector</span><span class="o">.</span><span class="n">select_to_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="#evokit.core.accountant.AccountantRecord.generation" title="evokit.core.accountant.AccountantRecord.generation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">generation</span></code></a> attribute increments by 1 _after_
+<a class="reference internal" href="#evokit.core.algorithm.Algorithm.step" title="evokit.core.algorithm.Algorithm.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> is called.</p>
 <p>Do not manually increment <code class="xref py py-attr docutils literal notranslate"><span class="pre">generation</span></code>. This property
 is automatically managed.</p>
 </div>
@@ -359,7 +351,7 @@ require access to the entire population.</p>
 </section>
 <section id="evokit-core-population-module">
 <h2>evokit.core.population module<a class="headerlink" href="#evokit-core-population-module" title="Link to this heading"></a></h2>
-<div class="graphviz"><object data="_images/inheritance-fb8fe9ac8bb81fdc59cc2945826d3e12a4a20acd.svg" type="image/svg+xml" class="inheritance graphviz">
+<div class="graphviz"><object data="_images/inheritance-75e4fdb6c118afb7291475e77a1cba982802aade.svg" type="image/svg+xml" class="inheritance graphviz">
 <p class="warning">Inheritance diagram of evokit.core.population</p></object></div>
 <dl class="py class" id="module-evokit.core.population">
 <dt class="sig sig-object py" id="evokit.core.population.Individual">
@@ -454,7 +446,7 @@ the original value.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="evokit.core.population.Population">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evokit.core.population.</span></span><span class="sig-name descname"><span class="pre">Population</span></span><a class="reference internal" href="_modules/evokit/core/population.html#Population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.Population" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractCollection</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>]</p>
 <p>A flat collection of individuals.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evokit.core.population.Population.__init__">
@@ -476,22 +468,6 @@ implementation of <a class="reference internal" href="#evokit.core.population.In
 <p>Call <a class="reference internal" href="#evokit.core.population.Individual.copy" title="evokit.core.population.Individual.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Individual.copy()</span></code></a> for each <a class="reference internal" href="#evokit.core.population.Individual" title="evokit.core.population.Individual"><code class="xref py py-class docutils literal notranslate"><span class="pre">Individual</span></code></a> in this
 population. Collect the results, then create a new population with
 these values.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="evokit.core.population.Population.sort">
-<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ranker:</span> <span class="pre">Callable[[D],</span> <span class="pre">SupportsRichComparison]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">Population.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/evokit/core/population.html#Population.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#evokit.core.population.Population.sort" title="Link to this definition"></a></dt>
-<dd><p>Rearrange items by fitness, highest-first.</p>
-<p>If individuals have multiple fitnesses, sort lexi … what?.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ranker</strong> – Sort key, called on each item prior to sorting.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Effect:</dt><dd><p>Rearrange items in this population.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">

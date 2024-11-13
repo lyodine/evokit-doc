@@ -107,7 +107,10 @@
 
 <span class="sd">    :meta private:</span>
 
-<span class="sd">    Implement special behaviours in :class:`Algorithm`.</span>
+<span class="sd">    Implement special behaviours in :class:`Algorithm`:</span>
+
+<span class="sd">        * After step is called, :attr:`.Algorithm.generation`</span>
+<span class="sd">          increments by ``1``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">mcls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bases</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">type</span><span class="p">],</span>
                 <span class="n">namespace</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
@@ -118,12 +121,12 @@
             <span class="c1"># The `@wraps` decorator ensures that the wrapper correctly</span>
             <span class="c1">#   inherits properties of the wrapped function, including</span>
             <span class="c1">#   docstring and signature.</span>
-            <span class="c1"># Return type is Any, because `wrapper` returns</span>
-            <span class="c1">#   the output of the wrapped function.</span>
-            <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+            <span class="c1"># Return type is None, because `wrapper` returns</span>
+            <span class="c1">#   the output of the wrapped function: :meth:`step` returns None.</span>
+            <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">custom_step</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">generation</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">return</span> <span class="n">custom_step</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="n">wrapper</span>
 
@@ -171,11 +174,12 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Subclasses should override this method.</span>
 
-<span class="sd">        The initialiser should create (or accept as argument) operators used</span>
-<span class="sd">        in the algorithm.</span>
+<span class="sd">        Initialise the state of an algorithm, including operators,</span>
+<span class="sd">        the initial population(s), truncation strategy, and other</span>
+<span class="sd">        parameters associated with the learning process as a whole.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1">#! Generation counter, automatically increments wit :py:attr:`step`.</span>
+        <span class="c1">#! Number of elapsed generations.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">generation</span><span class="p">:</span> <span class="nb">int</span>
         <span class="c1">#! Registered :class:`Accountant` objects.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">accountants</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Accountant</span><span class="p">]</span>
@@ -192,20 +196,10 @@
 <span class="sd">        Subclasses should override this method. Use operators to update</span>
 <span class="sd">        the population (or populations). Call :meth:`update` to fire events.</span>
 
-<span class="sd">        Example:</span>
-
-<span class="sd">        .. code-block:: Python</span>
-
-<span class="sd">            self.population = self.variator.vary_population(self.population)</span>
-<span class="sd">            self.update(&quot;POST_VARIATION&quot;)</span>
-
-<span class="sd">            self.evaluator.evaluate_population(self.population)</span>
-<span class="sd">            self.update(&quot;POST_EVALUATION&quot;)</span>
-
-<span class="sd">            self.population = \\</span>
-<span class="sd">                self.selector.select_to_population(self.population)</span>
-
 <span class="sd">        Note:</span>
+<span class="sd">            The :attr:`.generation` attribute increments by 1 _after_</span>
+<span class="sd">            :meth:`.step` is called.</span>
+
 <span class="sd">            Do not manually increment :attr:`generation`. This property</span>
 <span class="sd">            is automatically managed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

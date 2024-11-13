@@ -111,7 +111,7 @@
 <h1>Making a Custom Algorithm<a class="headerlink" href="#Making-a-Custom-Algorithm" title="Link to this heading"></a></h1>
 <p>In EvoKit, an algorithm combines operators to perform the training process.</p>
 <p>This example defines an <span class="math notranslate nohighlight">\((\mu+\lambda)\)</span> algorithm that maintains one population and accepts one set operators (including one evaluator, one selector, and one variator). These characteristics can be customised.</p>
-<center><p><img alt="82142c3ca9bc438a95f2f04fbe679d8d" src="../../_images/emperor.svg" /></p>
+<center><p><img alt="de6945ef8e8c43ed87772c04a30d5f0b" src="../../_images/emperor.svg" /></p>
 </center><p>See the following table for guides on how to define individual operators:</p>
 <table class="docutils align-default">
 <thead>
@@ -143,7 +143,7 @@
 <p>The evolutionary process acts not on individuals, but populations.</p>
 <p>To begin, create the initial <code class="docutils literal notranslate"><span class="pre">Population</span></code> of bit string representations. Check that the individuals are correctly initialised. A population in EvoKit essentially behaves like a <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Population</span>
@@ -152,7 +152,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="p">:</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]</span> <span class="o">=</span> <span class="n">Population</span><span class="p">[</span><span class="n">BinaryString</span><span class="p">]()</span>
@@ -170,13 +170,13 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
+[[1, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0]]
 </pre></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> attribute of an individual stores its fitness. For new individuals, this attribute is uninitialised and accessing it raises an error.</p>
 <p>To check if the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> is initialised, call <code class="docutils literal notranslate"><span class="pre">.has_fitness</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -204,7 +204,7 @@ It is _False_ that the fitness of `pop[0]` is defined.
 <p>A variator creates new individuals (offspring) from existing individuals. A mutator, in particular, is a variator that uses only one parent. All variators in EvoKit must ensure that operations performed on offspring do not affect the parent.</p>
 <p>The canonical mutator (<code class="docutils literal notranslate"><span class="pre">MutateBits</span></code>) for bit strings flips each digit with probability <code class="docutils literal notranslate"><span class="pre">mutation_rate</span></code>. Applying the mutator to the population creates a new population.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">MutateBits</span>
@@ -221,8 +221,8 @@ It is _False_ that the fitness of `pop[0]` is defined.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Parent:    [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;]
-Offspring: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[0, 1, 1, 0, 1]&#39;]
+Parent:    [[1, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0]]
+Offspring: [[1, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0]]
 </pre></div></div>
 </div>
 </section>
@@ -231,17 +231,17 @@ Offspring: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[0, 1, 1,
 <p>The evaluator assigns to the <code class="docutils literal notranslate"><span class="pre">.fitness</span></code> of all individuals in a population.</p>
 <p>Evaluation sets the stage for selection. Consider which population the algorithm selects from: using <span class="math notranslate nohighlight">\((\mu+\lambda)\)</span>, offspring competes with parents for selection. To implement this, call <code class="docutils literal notranslate"><span class="pre">Population.join</span></code> to create a population that includes individuals from <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">offspring</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joined_pool</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">offspring</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joined_pool</span> <span class="o">=</span> <span class="n">pop</span> <span class="o">+</span> <span class="n">offspring</span>
 </pre></div>
 </div>
 </div>
 <p>The canonical evaluator (<code class="docutils literal notranslate"><span class="pre">CountBits</span></code>) for bit strings sums all digits in the string. Once the evaluator is initialised, call <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> with the population as argument. Check that all individuals in the population are correctly evaluated.</p>
 <p>Note: unlike its counterparts <code class="docutils literal notranslate"><span class="pre">Variator.vary_population</span></code> and <code class="docutils literal notranslate"><span class="pre">Selector.select_population</span></code>, <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> does not return a value but rather modifies an attribute of its argument. To prevent any misunderstanding, <code class="docutils literal notranslate"><span class="pre">.evaluate_population</span></code> explicitly returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.binstring</span> <span class="kn">import</span> <span class="n">CountBits</span>
@@ -263,7 +263,7 @@ Fitness of [1, 1, 1, 1, 0] is (4,)
 Fitness of [1, 1, 1, 0, 0] is (3,)
 Fitness of [1, 1, 1, 1, 1] is (5,)
 Fitness of [1, 1, 1, 1, 0] is (4,)
-Fitness of [0, 1, 1, 0, 1] is (3,)
+Fitness of [1, 1, 1, 0, 0] is (3,)
 </pre></div></div>
 </div>
 </section>
@@ -271,7 +271,7 @@ Fitness of [0, 1, 1, 0, 1] is (3,)
 <h3>Select<a class="headerlink" href="#Select" title="Link to this heading"></a></h3>
 <p>A selector selects from a <code class="docutils literal notranslate"><span class="pre">Population</span></code> into a strict subset. The <code class="docutils literal notranslate"><span class="pre">TruncationSelector</span></code>, in particular, selects individuals with the highest <code class="docutils literal notranslate"><span class="pre">.fitness</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.evolvables.selectors</span> <span class="kn">import</span> <span class="n">TruncationSelector</span>
@@ -287,8 +287,8 @@ Fitness of [0, 1, 1, 0, 1] is (3,)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[0, 1, 1, 0, 1]&#39;], the truncation selector
-    selects [&#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;].
+From [&lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB308B00&gt;, &lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB308B30&gt;, &lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB308710&gt;, &lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB1A2D20&gt;, &lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB1A25A0&gt;, &lt;evokit.evolvables.binstring.BinaryString object at 0x000001D8FB308920&gt;], the truncation selector
+    selects [[1, 1, 1, 1, 0], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]].
 </pre></div></div>
 </div>
 </section>
@@ -301,7 +301,7 @@ From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]
 <li><p><code class="docutils literal notranslate"><span class="pre">.step</span></code> performs one iteration.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evokit.core</span> <span class="kn">import</span> <span class="n">Algorithm</span>
@@ -324,8 +324,7 @@ From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]
 
     <span class="nd">@override</span>
     <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">variator</span><span class="o">.</span><span class="n">vary_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate_population</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
 
@@ -336,7 +335,7 @@ From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]
 </div>
 <p>The creation of individuals can also be automated. For example, <code class="docutils literal notranslate"><span class="pre">BinaryString.random</span></code> creates random binary strings of a given length. Take advantage of this to create a initial population.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_pop</span> <span class="o">=</span> <span class="n">Population</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">BinaryString</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -351,12 +350,12 @@ From [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 0, 0]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Initial population: [&#39;[1, 0, 0, 1, 1]&#39;, &#39;[1, 0, 0, 0, 1]&#39;, &#39;[0, 1, 1, 1, 0]&#39;]
+Initial population: [[0, 0, 0, 1, 0], [1, 0, 0, 0, 1], [1, 1, 0, 0, 1]]
 </pre></div></div>
 </div>
 <p>Initialise an algorithm with <code class="docutils literal notranslate"><span class="pre">another_pop</span></code> as its initial population, using operators mentioned above.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span> <span class="o">=</span> <span class="n">SimpleMuPlusLambda</span><span class="p">(</span><span class="n">another_pop</span><span class="p">,</span>
@@ -368,7 +367,7 @@ Initial population: [&#39;[1, 0, 0, 1, 1]&#39;, &#39;[1, 0, 0, 0, 1]&#39;, &#39;
 </div>
 <p>Run the algorithm. Observe an increase in fitness across generations: the algorithm runs correctly!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -383,25 +382,25 @@ Initial population: [&#39;[1, 0, 0, 1, 1]&#39;, &#39;[1, 0, 0, 0, 1]&#39;, &#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Current population: [&#39;[1, 0, 0, 1, 1]&#39;, &#39;[0, 1, 1, 1, 0]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(3,), (3,), (5,)]
-Current population: [&#39;[0, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current population: [[1, 1, 0, 0, 1], [1, 0, 1, 0, 1], [1, 1, 0, 0, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 1, 0, 0, 1], [1, 1, 0, 0, 1], [1, 0, 1, 0, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 1, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 1, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 1, 0, 0, 1], [1, 0, 1, 1, 0], [1, 0, 0, 1, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 0, 0, 1, 1], [1, 1, 0, 0, 1], [1, 0, 0, 1, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 1, 0, 0, 1], [1, 0, 0, 1, 1], [1, 1, 0, 0, 1]]
+Current fitnesses: [(3,), (3,), (3,)]
+Current population: [[1, 1, 1, 0, 1], [1, 1, 1, 0, 1], [1, 1, 1, 1, 1]]
 Current fitnesses: [(4,), (4,), (5,)]
-Current population: [&#39;[1, 1, 1, 0, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current population: [[1, 1, 1, 0, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
 Current fitnesses: [(4,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current population: [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
 Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
-Current fitnesses: [(5,), (5,), (5,)]
-Current population: [&#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;, &#39;[1, 1, 1, 1, 1]&#39;]
+Current population: [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
 Current fitnesses: [(5,), (5,), (5,)]
 </pre></div></div>
 </div>
